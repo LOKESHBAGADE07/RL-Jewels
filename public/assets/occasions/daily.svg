@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <defs>
+    <linearGradient id="daily" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f3f4f6"/>
+      <stop offset="100%" stop-color="#9ca3af"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#daily)"/>
+  <circle cx="200" cy="180" r="50" fill="none" stroke="#374151" stroke-width="6"/>
+  <circle cx="200" cy="180" r="25" fill="none" stroke="#374151" stroke-width="4"/>
+  <circle cx="170" cy="240" r="15" fill="none" stroke="#374151" stroke-width="3"/>
+  <circle cx="230" cy="240" r="15" fill="none" stroke="#374151" stroke-width="3"/>
+  <text x="50%" y="75%" dominant-baseline="middle" text-anchor="middle" font-family="serif" font-weight="700" font-size="32" fill="#374151">Daily Wear</text>
+  <text x="50%" y="85%" dominant-baseline="middle" text-anchor="middle" font-family="serif" font-size="16" fill="#4b5563">Everyday Style</text>
+</svg>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Firebase & SVG Debug</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 4px; }
+        .ok { background: #d4edda; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; border: 1px solid #f5c6cb; }
+        .debug { background: #e2e3e5; border: 1px solid #d6d8db; }
+    </style>
+</head>
+<body>
+    <h1>RL Jewels Debug Page</h1>
+    
+    <h2>Environment Variables</h2>
+    <div id="env-status"></div>
+    
+    <h2>Firebase Status</h2>
+    <div id="firebase-status"></div>
+    
+    <h2>SVG Assets Test</h2>
+    <div id="svg-test">
+        <p>Testing SVG loading:</p>
+        <img src="/assets/products/necklace.svg" alt="Necklace" style="width: 200px; height: 150px; border: 1px solid #ccc; margin: 10px;">
+        <img src="/assets/products/earrings.svg" alt="Earrings" style="width: 200px; height: 150px; border: 1px solid #ccc; margin: 10px;">
+        <img src="/assets/products/ring.svg" alt="Ring" style="width: 200px; height: 150px; border: 1px solid #ccc; margin: 10px;">
+    </div>
+    
+    <h2>Google Sign-In Test</h2>
+    <button id="signin-btn" onclick="testGoogleSignIn()">Test Google Sign-In</button>
+    <div id="signin-status"></div>
+    
+    <script type="module">
+        // Environment check
+        const envStatus = document.getElementById('env-status');
+        const firebaseStatus = document.getElementById('firebase-status');
+        const signinStatus = document.getElementById('signin-status');
+        
+        // Check env vars
+        const envVars = {
+            'VITE_FIREBASE_API_KEY': import.meta.env.VITE_FIREBASE_API_KEY,
+            'VITE_FIREBASE_AUTH_DOMAIN': import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+            'VITE_FIREBASE_PROJECT_ID': import.meta.env.VITE_FIREBASE_PROJECT_ID,
+            'VITE_FIREBASE_APP_ID': import.meta.env.VITE_FIREBASE_APP_ID,
+        };
+        
+        let envHtml = '';
+        for (const [key, value] of Object.entries(envVars)) {
+            const status = value ? 'ok' : 'error';
+            const display = value ? '✓ Set' : '✗ Missing';
+            envHtml += `<div class="status ${status}">${key}: ${display}</div>`;
+        }
+        envStatus.innerHTML = envHtml;
+        
+        // Firebase check
+        try {
+            const { initializeApp } = await import('firebase/app');
+            const { getAuth, GoogleAuthProvider, signInWithPopup } = await import('firebase/auth');
+            
+            const config = {
+                apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+                authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+                projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+                appId: import.meta.env.VITE_FIREBASE_APP_ID,
+            };
+            
+            const app = initializeApp(config);
+            const auth = getAuth(app);
+            const provider = new GoogleAuthProvider();
+            
+            firebaseStatus.innerHTML = '<div class="status ok">✓ Firebase initialized successfully</div>';
+            
+            // Make signin function global
+            window.testGoogleSignIn = async function() {
+                signinStatus.innerHTML = '<div class="status debug">Attempting Google sign-in...</div>';
+                try {
+                    const result = await signInWithPopup(auth, provider);
+                    signinStatus.innerHTML = `<div class="status ok">✓ Sign-in successful! User: ${result.user.email}</div>`;
+                } catch (error) {
+                    console.error('Sign-in error:', error);
+                    signinStatus.innerHTML = `<div class="status error">✗ Sign-in failed: ${error.message}</div>`;
+                }
+            };
+            
+        } catch (error) {
+            console.error('Firebase setup error:', error);
+            firebaseStatus.innerHTML = `<div class="status error">✗ Firebase setup failed: ${error.message}</div>`;
+        }
+    </script>
+</body>
+</html>

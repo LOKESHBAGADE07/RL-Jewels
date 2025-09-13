@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { @apply bg-surface-100 text-ink-900 font-sans antialiased; }
+:root {
+	--brand-grad: linear-gradient(135deg,#9b0d17 0%,#c01622 55%,#d53625 100%);
+}
+.section-accent-bg { @apply bg-gradient-to-b from-surface-100 via-surface-200 to-surface-100; }
+.pill { @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium bg-surface-300 text-ink-700; }
+.section-padding { @apply py-20 px-4 md:px-10 lg:px-20; }
+.max-content { @apply max-w-7xl mx-auto; }
+
+/* Focus styles */
+:focus-visible { @apply outline-none ring-2 ring-accent-gold/70 ring-offset-2 ring-offset-surface-100; }
+
+/* Smooth fade for image/video placeholders */
+img, video { @apply transition-opacity duration-500; }
+img[data-loading='true'] { opacity: 0; }
+img[data-loading='false'] { opacity: 1; }
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+	* { animation: none !important; transition: none !important; }
+}
