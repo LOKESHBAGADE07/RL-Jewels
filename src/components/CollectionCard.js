@@ -1,4 +1,0 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { motion } from 'framer-motion';
-export const CollectionCard = ({ title, img }) => (_jsxs(motion.div, { whileHover: { y: -6 }, className: "group relative overflow-hidden rounded-lg cursor-pointer shadow-lg", children: [_jsx("img", { src: img, alt: title, className: "w-full h-60 object-cover transition-transform duration-500 group-hover:scale-105 brightness-95" }), _jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" }), _jsxs("div", { className: "absolute bottom-0 p-4 w-full drop-shadow", children: [_jsx("h3", { className: "font-semibold text-lg text-white", children: title }), _jsx("p", { className: "text-accent-gold text-sm opacity-0 group-hover:opacity-100 transition", children: "View More \u2192" })] })] }));
-export default CollectionCard;

@@ -41,7 +41,7 @@ if (hasEnv) {
     googleProvider = new GoogleAuthProvider();
     console.log('Firebase initialized successfully ✓');
     // Analytics only in supported environments (e.g., window/HTTPS)
-    analyticsIsSupported().then((ok) => {
+    analyticsIsSupported().then((ok: boolean) => {
       if (ok && app) {
         try { analytics = getAnalytics(app); } catch {}
       }
