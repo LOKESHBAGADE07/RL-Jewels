@@ -1,16 +1,13 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Product, discountPercent } from '../data/products';
-import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import { FaHeart, FaRegHeart, FaWhatsapp } from 'react-icons/fa';
 import { useLocalStorage } from '../hooks/useLocalStorage';
-import { Link, useNavigate } from 'react-router-dom';
-import { useCart } from '../stores/cart';
+import { Link } from 'react-router-dom';
 
 type Props = { product: Product };
 
 export const ProductCard = ({ product }: Props) => {
-  const navigate = useNavigate();
-  const cart = useCart();
   const [wishlist, setWishlist] = useLocalStorage<string[]>('wishlist', []);
   const [wish, setWish] = useState(false);
   useEffect(() => {
@@ -21,6 +18,11 @@ export const ProductCard = ({ product }: Props) => {
   };
   const discount = discountPercent(product);
   const hasDiscount = discount > 0;
+  
+  const handleEnquiry = () => {
+    const message = `Hi, I'm interested in ${product.title} (₹${product.price.toLocaleString('en-IN')}). Can you provide more details?`;
+    window.open(`https://wa.me/919999999999?text=${encodeURIComponent(message)}`, '_blank');
+  };
   return (
     <motion.div
       layout
@@ -67,13 +69,11 @@ export const ProductCard = ({ product }: Props) => {
           <Link to={`/product/${product.id}`} className="w-full text-center text-[12px] font-medium tracking-wide border border-brand-red text-brand-red py-2 rounded hover:bg-brand-red hover:text-white transition">
             View Details
           </Link>
-          <button onClick={() => { cart.add({ id: product.id, title: product.title, price: product.price, image: product.image }, 1); }} className="w-full text-center text-[12px] font-medium tracking-wide border border-accent-gold text-ink-900 py-2 rounded hover:bg-accent-gold/20 transition">
-            Add to Cart
+          <button onClick={handleEnquiry} className="w-full text-center text-[12px] font-medium tracking-wide border border-green-600 text-green-600 py-2 rounded hover:bg-green-600 hover:text-white transition flex items-center justify-center gap-1">
+            <FaWhatsapp />
+            <span>Enquire</span>
           </button>
         </div>
-        <button onClick={() => { cart.add({ id: product.id, title: product.title, price: product.price, image: product.image }, 1); navigate('/checkout'); }} className="w-full text-center text-[12px] font-medium tracking-wide border border-surface-300 text-ink-900 py-2 rounded hover:bg-surface-200/60 transition">
-          Buy Now
-        </button>
       </div>
     </motion.div>
   );

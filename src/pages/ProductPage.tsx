@@ -1,12 +1,10 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { newArrivals, bestSellers } from '../data/products';
-import Button from '../components/Button';
-import { useNavigate } from 'react-router-dom';
 import { useGoldRate, computePriceBreakdown } from '../stores/goldRate';
-import { useCart } from '../stores/cart';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import useDocumentTitle from '../lib/useDocumentTitle';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -30,16 +28,18 @@ export default function ProductPage() {
   const { goldValue, making, gst, total } = computePriceBreakdown({ rate, netWeight: netW, makingPct: 10 });
   const media = useMemo(() => product.images && product.images.length > 0 ? product.images : [product.image], [product]);
   const [activeIdx, setActiveIdx] = useState(0);
-  const [qty, setQty] = useState(1);
-  const add = useCart(s => s.add);
   const [wishlist, setWishlist] = useLocalStorage<string[]>('wishlist', []);
   const wished = wishlist.includes(product.id);
   const toggleWish = () => setWishlist(prev => prev.includes(product.id) ? prev.filter(i => i !== product.id) : [...prev, product.id]);
-  const navigate = useNavigate();
   const [reviews, setReviews] = useState<{name:string; rating:number; text:string; date:string;}[]>([]);
   const [myRating, setMyRating] = useState(5);
   const [myName, setMyName] = useState('');
   const [myText, setMyText] = useState('');
+  
+  const handleEnquiry = () => {
+    const message = `Hi, I'm interested in ${product.title} (₹${total.toLocaleString('en-IN')}). Can you provide more details about this jewelry piece?`;
+    window.open(`https://wa.me/919999999999?text=${encodeURIComponent(message)}`, '_blank');
+  };
 
   // Get related products
   const allProducts = [...newArrivals, ...bestSellers];
@@ -132,17 +132,27 @@ export default function ProductPage() {
               <div className="mt-3 text-lg font-bold">Final Price: <span className="text-brand-red">₹ {total.toLocaleString('en-IN')}</span></div>
             </div>
 
-            <div className="flex items-center gap-3">
-              <div className="flex items-center border border-accent-gold/40 rounded-md overflow-hidden">
-                <button className="px-3 py-2" onClick={() => setQty(q => Math.max(1, q-1))} aria-label="Decrease quantity">−</button>
-                <input aria-label="Quantity" value={qty} onChange={(e) => setQty(Math.max(1, parseInt(e.target.value || '1', 10)))} className="w-12 text-center py-2 outline-none" />
-                <button className="px-3 py-2" onClick={() => setQty(q => q+1)} aria-label="Increase quantity">+</button>
-              </div>
-              <Button disabled={!inStock} onClick={() => add({ id: product.id, title: product.title, price: total, image: media[0] }, qty)}>
-                {inStock ? 'Add to Cart' : 'Unavailable'}
-              </Button>
-              <Button variant="secondary" disabled={!inStock} onClick={() => { add({ id: product.id, title: product.title, price: total, image: media[0] }, qty); navigate('/checkout'); }}>Buy Now</Button>
-              <button className={`px-4 rounded-md border text-sm ${wished ? 'border-brand-red text-brand-red' : 'border-accent-gold/40'}`} onClick={toggleWish}>{wished ? '♥ Wishlisted' : '♡ Wishlist'}</button>
+            <div className="flex items-center gap-3 flex-wrap">
+              <button 
+                disabled={!inStock}
+                onClick={handleEnquiry}
+                className="flex-1 min-w-[200px] flex items-center justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white rounded-lg font-semibold transition-colors"
+              >
+                <FaWhatsapp className="text-xl" />
+                {inStock ? 'Enquire on WhatsApp' : 'Out of Stock'}
+              </button>
+              <button 
+                className={`px-6 py-3 rounded-lg border text-sm font-semibold transition-colors ${wished ? 'border-brand-red bg-brand-red text-white' : 'border-accent-gold/40 hover:bg-accent-gold/10'}`} 
+                onClick={toggleWish}
+              >
+                {wished ? '♥ Wishlisted' : '♡ Add to Wishlist'}
+              </button>
+            </div>
+            
+            <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+              <p className="text-sm text-amber-900">
+                <strong>Visit Our Store:</strong> We don't sell online. Please contact us via WhatsApp or visit our showroom in Jalgaon to purchase this beautiful piece.
+              </p>
             </div>
 
             <div className="mt-8">

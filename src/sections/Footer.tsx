@@ -18,26 +18,26 @@ export const Footer = () => (
             </li>
           ))}
         </ul>
-        <h4 className="font-serif text-xl leading-tight mb-5 mt-8 tracking-wide">Policies</h4>
+        <h4 className="font-serif text-xl leading-tight mb-5 mt-8 tracking-wide">Information</h4>
         <ul className="space-y-2 text-sm">
+          <li><RouterLink to="/about" className="hover:text-brand-red transition">About Us</RouterLink></li>
           <li><RouterLink to="/terms" className="hover:text-brand-red transition">Terms & Conditions</RouterLink></li>
           <li><RouterLink to="/privacy" className="hover:text-brand-red transition">Privacy Policy</RouterLink></li>
-          <li><RouterLink to="/shipping-policy" className="hover:text-brand-red transition">Shipping Policy</RouterLink></li>
-          <li><RouterLink to="/returns-policy" className="hover:text-brand-red transition">Return, Refund & Buy-Back</RouterLink></li>
           <li><RouterLink to="/faq" className="hover:text-brand-red transition">FAQs</RouterLink></li>
+          <li><a href="tel:+919999999999" className="hover:text-brand-red transition">Contact: +91 99999 99999</a></li>
         </ul>
       </div>
       <div>
-        <h4 className="font-serif text-xl leading-tight mb-5 tracking-wide">Trusted Partners</h4>
-        <div className="grid grid-cols-3 gap-3 text-center text-xs text-text-secondary">
-          <div className="rounded border border-white/10 p-2">Razorpay</div>
-          <div className="rounded border border-white/10 p-2">Shiprocket</div>
-          <div className="rounded border border-white/10 p-2">BIS</div>
+        <h4 className="font-serif text-xl leading-tight mb-5 tracking-wide">Certifications</h4>
+        <div className="grid grid-cols-2 gap-3 text-center text-xs text-text-secondary mb-6">
+          <div className="rounded border border-white/10 p-3 font-semibold">BIS Hallmarked</div>
+          <div className="rounded border border-white/10 p-3 font-semibold">Certified Jewelry</div>
         </div>
+        <h4 className="font-serif text-sm leading-tight mb-3 tracking-wide">Connect With Us</h4>
         <div className="flex gap-5 text-2xl" aria-label="Social Media Links">
-          <a href="#" aria-label="Instagram" className="hover:text-brand-red" rel="noopener noreferrer"><FaInstagram /></a>
-          <a href="#" aria-label="Facebook" className="hover:text-brand-red" rel="noopener noreferrer"><FaFacebook /></a>
-          <a href="https://wa.me/919999999999" aria-label="WhatsApp" className="hover:text-brand-red" rel="noopener noreferrer"><FaWhatsapp /></a>
+          <a href="https://instagram.com/rljewels" target="_blank" aria-label="Instagram" className="hover:text-brand-red" rel="noopener noreferrer"><FaInstagram /></a>
+          <a href="https://facebook.com/rljewels" target="_blank" aria-label="Facebook" className="hover:text-brand-red" rel="noopener noreferrer"><FaFacebook /></a>
+          <a href="https://wa.me/919999999999?text=Hi, I'm interested in RL Jewels" target="_blank" aria-label="WhatsApp" className="hover:text-brand-red" rel="noopener noreferrer"><FaWhatsapp /></a>
         </div>
       </div>
       <div>
