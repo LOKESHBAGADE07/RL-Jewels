@@ -6,6 +6,14 @@ A beautiful jewelry showcase website for RL Jewels, a trusted jeweler in Jalgaon
 **Current State**: Fully functional showcase website with product galleries, collections, and inquiry options via WhatsApp. **Now includes admin system for product management!**
 
 ## Recent Changes (October 27, 2025)
+### Pure Photography Showcase (Latest)
+- **Removed All Pricing**: Website now shows only jewelry photos without any prices
+- **No Price Displays**: Removed prices from product cards, detail pages, and search results
+- **No Price Filters**: Removed min/max price filters from catalog page
+- **No Gold Rate Ticker**: Removed live metal rate display from header
+- **Showcase-Only Messaging**: Updated footer and messaging to direct customers to store for pricing
+- **Admin Still Manages Pricing**: Price data can still be stored in backend but not shown publicly
+
 ### Admin System Integration
 - **Supabase Backend**: Integrated PostgreSQL database and file storage
 - **Admin Authentication**: Magic link email login for authorized staff
@@ -66,14 +74,14 @@ src/
 
 ## Features
 ### Customer Features
-- **Product Showcase**: Beautiful product galleries with search and filters
-- **Product Details**: Image gallery, transparent pricing with live gold rates, specifications
+- **Product Showcase**: Beautiful product galleries with search and filters (NO PRICING)
+- **Product Details**: Image gallery, specifications, purity, and weight information
 - **Collections**: Bridal, Gold, Silver, Diamond collections
 - **Occasions**: Shop by occasion (Wedding, Festive, Daily, Office, Gifting)
 - **Wishlist**: Save favorite items locally
-- **Live Metal Rates**: Real-time gold/silver rate display affecting pricing
-- **WhatsApp Inquiry**: Direct WhatsApp contact for product enquiries
+- **WhatsApp Inquiry**: Direct WhatsApp contact for product enquiries and pricing
 - **Contact Information**: Phone, WhatsApp, email, and store address
+- **Pure Photography**: Website displays only beautiful jewelry images without prices
 
 ### Business Features
 - **Savings Calculator**: Gold savings plan calculator
@@ -82,13 +90,14 @@ src/
 - **Legal Pages**: Terms, Privacy, FAQs
 - **Heritage Section**: Company history and values
 
-### Admin Features (New!)
+### Admin Features
 - **Secure Login**: Magic link authentication via email (lbagade6@gmail.com)
 - **Product Management**: Add, edit, and delete jewelry products
 - **Image Upload**: Upload main and additional product images to cloud storage
 - **Inventory Control**: Mark products as in-stock or out-of-stock
 - **Real-time Updates**: Changes appear immediately on public website
-- **Product Details**: Set price, purity, weight, tags, badges, and more
+- **Product Details**: Set price (stored privately), purity, weight, tags, badges, and more
+- **Note**: Prices are stored in database but NOT displayed publicly on website
 
 ## Contact Information
 - **Phone**: +91 99999 99999
@@ -98,12 +107,13 @@ src/
 - **Hours**: Monday – Saturday: 10:00 AM – 8:00 PM (Closed Sunday)
 
 ## Important Notes
-- **NOT AN E-COMMERCE SITE**: This website showcases jewelry collections only
+- **PURE SHOWCASE SITE**: This website displays only jewelry photography - NO PRICING SHOWN
 - **No Online Sales**: All purchases must be made in-store or via phone/WhatsApp inquiry
 - **Data**: Products stored in Supabase PostgreSQL database
 - **Images**: Product images stored in Supabase Storage (cloud-hosted)
-- **Pricing**: Prices shown are indicative and vary with daily gold rates
+- **Pricing**: NO prices displayed publicly; customers must visit store or contact for pricing
 - **Location**: Physical showroom located in Jalgaon, Maharashtra
+- **Philosophy**: Like Chandukaka Saraf website - beautiful imagery showcase only
 
 ## ⚠️ CRITICAL SECURITY SETUP
 
