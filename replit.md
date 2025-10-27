@@ -6,7 +6,17 @@ A beautiful jewelry showcase website for RL Jewels, a trusted jeweler in Jalgaon
 **Current State**: Fully functional showcase website with product galleries, collections, and inquiry options via WhatsApp. **Now includes admin system for product management!**
 
 ## Recent Changes (October 27, 2025)
-### Customer Testimonial Videos ✅ (Latest)
+### Blog Section ✅ (Latest)
+- **✅ Admin Blog Manager**: Create, edit, publish, and delete blog posts from admin panel
+- **✅ Public Blog Pages**: Beautiful blog list and individual post pages for customers
+- **✅ Markdown Support**: Write rich content using Markdown formatting (headings, bold, lists, etc.)
+- **✅ Categories & Tags**: 8 jewelry-related categories (Care, Investment, Wedding, etc.)
+- **✅ Image Upload**: Upload featured images for each blog post
+- **✅ Draft/Publish**: Save as draft or publish immediately
+- **✅ Database Ready**: SQL schema created in `BLOG_DATABASE_SETUP.sql`
+- **Note**: Run SQL file in Supabase to activate feature (see SETUP_BLOG.md)
+
+### Customer Testimonial Videos ✅
 - **✅ Admin Panel**: Manage customer testimonial videos from admin dashboard
 - **✅ Video Display**: Show approved testimonials on homepage (top 3) and dedicated page
 - **✅ YouTube Integration**: Embed customer review videos using YouTube links
@@ -118,6 +128,7 @@ src/
 - **Image Upload**: Upload main and additional product images to cloud storage
 - **Inventory Control**: Mark products as in-stock or out-of-stock
 - **Testimonials Manager**: Add customer video testimonials, approve/unapprove, set display order
+- **Blog Manager**: Create, edit, publish blog posts with Markdown support
 - **Real-time Updates**: Changes appear immediately on public website
 - **Product Details**: Set price (stored privately), purity, weight, tags, badges, and more
 - **Note**: Prices are stored in database but NOT displayed publicly on website
@@ -239,8 +250,8 @@ To add more admins, update the Supabase Auth settings in the Supabase dashboard.
 
 ## Future Enhancements (In Progress)
 - ✅ Customer testimonial videos - **COMPLETE!**
-- 🔄 Implement blog section for jewelry care tips - **NEXT UP**
-- 🔄 Multilingual support (Marathi/Hindi) - **PLANNED**
+- ✅ Blog section for jewelry care tips - **COMPLETE!**
+- 🔄 Multilingual support (Marathi/Hindi) - **NEXT UP**
 - 🔄 Product analytics dashboard - **PLANNED**
 - 🔄 Customer inquiry tracking - **PLANNED**
 - Add more product images and videos
