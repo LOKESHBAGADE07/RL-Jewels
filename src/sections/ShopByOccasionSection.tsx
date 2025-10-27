@@ -45,7 +45,7 @@ export const ShopByOccasionSection: React.FC = () => {
         <div className="text-center">
           <Link 
             to="/occasions" 
-            className="inline-flex items-center gap-2 px-6 py-3 bg-accent-gold text-ink-900 rounded-lg hover:bg-accent-gold/80 transition-colors font-semibold"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white rounded-lg hover:bg-brand-red/90 transition-colors font-semibold"
           >
             View All Occasions
           </Link>
