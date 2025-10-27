@@ -13,6 +13,8 @@ A beautiful jewelry showcase website for RL Jewels, a trusted jeweler in Jalgaon
 - **Add/Edit Products**: Full CRUD operations with image upload
 - **Image Management**: Upload multiple product images to cloud storage
 - **Real-time Updates**: Public website automatically shows database changes
+- **Homepage Sections**: New Arrivals and Best Sellers now dynamically fetch from database
+- **Fixed Vite Config**: Added `allowedHosts: true` for Replit preview compatibility
 
 ## Recent Changes (October 26, 2025)
 ### Initial Setup
