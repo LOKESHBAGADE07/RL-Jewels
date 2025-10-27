@@ -1,12 +1,12 @@
 import React, { useMemo, useState } from 'react';
 import SectionTitle from '../components/SectionTitle';
 import ProductCard from '../components/ProductCard';
-import { newArrivals, bestSellers, type Product } from '../data/products';
+import { useProducts } from '../hooks/useProducts';
 import useDocumentTitle from '../lib/useDocumentTitle';
 
 export default function CatalogPage() {
   useDocumentTitle('Catalog');
-  const all: Product[] = [...newArrivals, ...bestSellers];
+  const { products: all, loading, error } = useProducts();
   const [query, setQuery] = useState('');
   const [purity, setPurity] = useState<'all'|'22K'|'24K'|'18K'>('all');
   const [inStockOnly, setInStockOnly] = useState(false);
@@ -34,7 +34,19 @@ export default function CatalogPage() {
     <section className="section-padding">
       <div className="max-content">
         <SectionTitle title="All Products" subtitle="Catalog" />
-        <div className="mb-6 grid gap-4 md:grid-cols-4 lg:grid-cols-6 items-end bg-white/70 p-4 rounded-lg border border-accent-gold/30">
+        {loading && (
+          <div className="text-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-red mx-auto"></div>
+            <p className="mt-4 text-ink-600">Loading products...</p>
+          </div>
+        )}
+        {error && (
+          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">
+            <p className="font-medium">Error loading products</p>
+            <p className="text-sm">{error}</p>
+          </div>
+        )}
+        {!loading && <div className="mb-6 grid gap-4 md:grid-cols-4 lg:grid-cols-6 items-end bg-white/70 p-4 rounded-lg border border-accent-gold/30">
           <div className="md:col-span-2 lg:col-span-2">
             <label className="block text-xs text-ink-600 mb-1">Search</label>
             <input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search products..." className="w-full border border-accent-gold/40 rounded px-3 py-2" />
@@ -69,13 +81,13 @@ export default function CatalogPage() {
             <input type="checkbox" checked={inStockOnly} onChange={e=>setInStockOnly(e.target.checked)} />
             In Stock only
           </label>
-        </div>
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        </div>}
+        {!loading && <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {products.map(p => <ProductCard key={p.id} product={p} />)}
           {products.length === 0 && (
             <div className="col-span-full text-sm text-ink-600">No products match your filters.</div>
           )}
-        </div>
+        </div>}
       </div>
     </section>
   );

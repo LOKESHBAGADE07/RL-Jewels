@@ -11,6 +11,11 @@ import PrivacyPage from '@/pages/PrivacyPage';
 import AboutPage from '@/pages/AboutPage';
 import FAQPage from '@/pages/FAQPage';
 import SiteLayout from '@/components/SiteLayout';
+import AdminLogin from '@/pages/admin/AdminLogin';
+import AdminLayout from '@/components/AdminLayout';
+import AdminDashboard from '@/pages/admin/AdminDashboard';
+import ProductForm from '@/pages/admin/ProductForm';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
 function App() {
   return (
@@ -28,6 +33,13 @@ function App() {
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/faq" element={<FAQPage />} />
+        </Route>
+
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="products/new" element={<ProductForm />} />
+          <Route path="products/edit/:id" element={<ProductForm />} />
         </Route>
       </Routes>
     </BrowserRouter>

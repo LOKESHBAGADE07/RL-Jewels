@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
+import { Product as LocalProduct } from '../data/products';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -25,4 +26,22 @@ export interface Product {
   in_stock: boolean;
   created_at?: string;
   updated_at?: string;
+}
+
+// Convert Supabase product to local product format
+export function toLocalProduct(product: Product): LocalProduct {
+  return {
+    id: product.id,
+    title: product.title,
+    image: product.image,
+    price: product.price,
+    originalPrice: product.original_price,
+    tags: product.tags,
+    badge: product.badge,
+    purity: product.purity as '22K' | '24K' | '18K' | undefined,
+    grossWeightGrams: product.gross_weight_grams,
+    netWeightGrams: product.net_weight_grams,
+    inStock: product.in_stock,
+    images: product.images,
+  };
 }
