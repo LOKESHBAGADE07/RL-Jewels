@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { FiSearch, FiMenu, FiX, FiPhone } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import Navigation from './Navigation';
+import LanguageSwitcher from './LanguageSwitcher';
 import { Link } from 'react-scroll';
 import logo from '../assets/logo.png';
 import { bestSellers, newArrivals, Product } from '../data/products';
@@ -36,7 +37,8 @@ export const Header = () => {
           <img src={logo} alt="RL Jewels" className="h-12 w-auto" loading="lazy" />
         </Link>
         <Navigation />
-        <div className="hidden lg:flex items-center gap-5 text-xl text-ink-700">
+        <div className="hidden lg:flex items-center gap-3 text-xl text-ink-700">
+          <LanguageSwitcher />
           <button aria-label="Search" onClick={() => setSearchOpen(true)} className="hover:text-brand-red transition"><FiSearch /></button>
           <a aria-label="Call us" href="tel:+919999999999" className="hover:text-brand-red transition">
             <FiPhone />
@@ -58,7 +60,8 @@ export const Header = () => {
               </Link>
             ))}
           </nav>
-          <div className="flex gap-6 text-2xl pt-4">
+          <div className="flex items-center gap-6 text-2xl pt-4">
+            <LanguageSwitcher />
             <button onClick={() => { setSearchOpen(true); setOpen(false); }} aria-label="Search"><FiSearch /></button>
             <a href="tel:+919999999999" aria-label="Call us"><FiPhone /></a>
             <a href="https://wa.me/919999999999?text=Hi, I'm interested in RL Jewels collection" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><FaWhatsapp /></a>
