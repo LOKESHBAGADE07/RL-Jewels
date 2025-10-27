@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Product, discountPercent } from '../data/products';
+import { Product } from '../data/products';
 import { FaHeart, FaRegHeart, FaWhatsapp } from 'react-icons/fa';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { Link } from 'react-router-dom';
@@ -16,11 +16,9 @@ export const ProductCard = ({ product }: Props) => {
   const toggleWish = () => {
     setWishlist(prev => prev.includes(product.id) ? prev.filter(i => i !== product.id) : [...prev, product.id]);
   };
-  const discount = discountPercent(product);
-  const hasDiscount = discount > 0;
   
   const handleEnquiry = () => {
-    const message = `Hi, I'm interested in ${product.title} (₹${product.price.toLocaleString('en-IN')}). Can you provide more details?`;
+    const message = `Hi, I'm interested in ${product.title}. Can you provide more details?`;
     window.open(`https://wa.me/919999999999?text=${encodeURIComponent(message)}`, '_blank');
   };
   return (
@@ -41,11 +39,6 @@ export const ProductCard = ({ product }: Props) => {
             {product.badge}
           </span>
         )}
-        {hasDiscount && (
-          <span className="absolute right-2 top-2 bg-black/70 text-accent-gold text-[11px] font-medium px-2 py-1 rounded">
-            -{discount}%
-          </span>
-        )}
         <button
           aria-label="Toggle wishlist"
           onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleWish(); }}
@@ -56,15 +49,6 @@ export const ProductCard = ({ product }: Props) => {
       </Link>
       <div className="p-4 space-y-2">
         <h3 className="text-sm font-medium line-clamp-2 min-h-[2.5rem]">{product.title}</h3>
-        <div className="flex items-end gap-2 text-sm">
-          <span className="text-brand-red font-semibold">₹{product.price.toLocaleString('en-IN')}</span>
-          {product.originalPrice && (
-            <span className="text-xs line-through text-text-secondary/70">₹{product.originalPrice.toLocaleString('en-IN')}</span>
-          )}
-        </div>
-        {hasDiscount && (
-          <p className="text-[11px] text-text-secondary">You save ₹{(product.originalPrice! - product.price).toLocaleString('en-IN')}</p>
-        )}
         <div className="grid grid-cols-2 gap-2 pt-1">
           <Link to={`/product/${product.id}`} className="w-full text-center text-[12px] font-medium tracking-wide border border-brand-red text-brand-red py-2 rounded hover:bg-brand-red hover:text-white transition">
             View Details

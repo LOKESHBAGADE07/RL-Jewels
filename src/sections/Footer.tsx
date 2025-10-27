@@ -62,9 +62,9 @@ export const Footer = () => (
         </form>
       </div>
       <div className="pt-6 mt-2 border-t border-white/10 md:border-t-0 md:pt-0 md:mt-0 md:border-l md:border-white/10 md:pl-8">
-        <h4 className="font-serif text-xl leading-tight mb-5 tracking-wide">Disclaimer</h4>
+        <h4 className="font-serif text-xl leading-tight mb-5 tracking-wide">Visit Our Store</h4>
         <p className="text-xs text-text-secondary leading-relaxed">
-          Prices vary with daily gold rate. T&C apply. Jalgaon jurisdiction only.
+          We showcase our beautiful jewelry collection online. For pricing and purchase, please visit our showroom in Jalgaon or contact us via WhatsApp.
         </p>
       </div>
     </div>

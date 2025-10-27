@@ -93,7 +93,6 @@ export const Header = () => {
                         </div>
                         <div className="flex-1 min-w-0">
                           <p className="font-medium truncate">{r.title}</p>
-                          <p className="text-sm text-brand-red font-semibold">₹{r.price.toLocaleString('en-IN')}</p>
                         </div>
                         {r.badge && <span className="pill">{r.badge}</span>}
                       </div>

@@ -37,7 +37,7 @@ export default function ProductPage() {
   const [myText, setMyText] = useState('');
   
   const handleEnquiry = () => {
-    const message = `Hi, I'm interested in ${product.title} (₹${total.toLocaleString('en-IN')}). Can you provide more details about this jewelry piece?`;
+    const message = `Hi, I'm interested in ${product.title}. Can you provide more details about this jewelry piece?`;
     window.open(`https://wa.me/919999999999?text=${encodeURIComponent(message)}`, '_blank');
   };
 
@@ -120,17 +120,6 @@ export default function ProductPage() {
             </div>
 
             <p className="text-sm text-ink-700 mb-5">A timeless piece crafted with care. Detailed specs, purity, and certification available below.</p>
-
-            <div className="rounded-lg border border-accent-gold/30 bg-white/70 p-4 mb-6">
-              <h2 className="font-semibold mb-3">Transparent Pricing</h2>
-              <ul className="text-sm space-y-1">
-                <li>Live Gold Rate (per gram): <strong>₹ {rate.toLocaleString('en-IN')}</strong></li>
-                <li>Gold Value (Rate × {netW.toFixed(2)}g): <strong>₹ {goldValue.toLocaleString('en-IN')}</strong></li>
-                <li>Making Charges (10%): <strong>₹ {making.toLocaleString('en-IN')}</strong></li>
-                <li>GST (3%): <strong>₹ {gst.toLocaleString('en-IN')}</strong></li>
-              </ul>
-              <div className="mt-3 text-lg font-bold">Final Price: <span className="text-brand-red">₹ {total.toLocaleString('en-IN')}</span></div>
-            </div>
 
             <div className="flex items-center gap-3 flex-wrap">
               <button 
@@ -223,9 +212,6 @@ export default function ProductPage() {
                     >
                       {relatedProduct.title}
                     </Link>
-                    <div className="text-brand-red font-semibold">
-                      ₹{relatedProduct.price.toLocaleString('en-IN')}
-                    </div>
                     <Link
                       to={`/product/${relatedProduct.id}`}
                       className="w-full bg-accent-gold text-ink-900 py-2 px-3 rounded text-sm hover:bg-accent-gold/80 transition-colors font-semibold text-center block"
