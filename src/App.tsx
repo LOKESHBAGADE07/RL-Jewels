@@ -22,6 +22,7 @@ import BlogManager from '@/pages/admin/BlogManager';
 import BlogForm from '@/pages/admin/BlogForm';
 import BlogListPage from '@/pages/BlogListPage';
 import BlogPostPage from '@/pages/BlogPostPage';
+import InquiriesManager from '@/pages/admin/InquiriesManager';
 import ProtectedRoute from '@/components/ProtectedRoute';
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
           <Route path="blog" element={<BlogManager />} />
           <Route path="blog/new" element={<BlogForm />} />
           <Route path="blog/edit/:id" element={<BlogForm />} />
+          <Route path="inquiries" element={<InquiriesManager />} />
         </Route>
       </Routes>
     </BrowserRouter>
