@@ -15,6 +15,9 @@ import AdminLogin from '@/pages/admin/AdminLogin';
 import AdminLayout from '@/components/AdminLayout';
 import AdminDashboard from '@/pages/admin/AdminDashboard';
 import ProductForm from '@/pages/admin/ProductForm';
+import TestimonialsManager from '@/pages/admin/TestimonialsManager';
+import TestimonialForm from '@/pages/admin/TestimonialForm';
+import TestimonialsPage from '@/pages/TestimonialsPage';
 import ProtectedRoute from '@/components/ProtectedRoute';
 
 function App() {
@@ -29,6 +32,7 @@ function App() {
           <Route path="/occasions" element={<OccasionsPage />} />
           <Route path="/occasion/:id" element={<OccasionDetailPage />} />
           <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -40,6 +44,9 @@ function App() {
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="products/new" element={<ProductForm />} />
           <Route path="products/edit/:id" element={<ProductForm />} />
+          <Route path="testimonials" element={<TestimonialsManager />} />
+          <Route path="testimonials/new" element={<TestimonialForm />} />
+          <Route path="testimonials/edit/:id" element={<TestimonialForm />} />
         </Route>
       </Routes>
     </BrowserRouter>
