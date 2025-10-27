@@ -1,6 +1,6 @@
 import { Link, useNavigate, Outlet } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
-import { FiHome, FiPackage, FiLogOut, FiPlus, FiStar } from 'react-icons/fi';
+import { FiHome, FiPackage, FiLogOut, FiPlus, FiStar, FiFileText } from 'react-icons/fi';
 
 export default function AdminLayout() {
   const navigate = useNavigate();
@@ -37,6 +37,13 @@ export default function AdminLayout() {
                 >
                   <FiStar />
                   <span>Testimonials</span>
+                </Link>
+                <Link
+                  to="/admin/blog"
+                  className="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-700 hover:text-gray-900 transition-colors"
+                >
+                  <FiFileText />
+                  <span>Blog</span>
                 </Link>
                 <Link
                   to="/admin/products/new"
