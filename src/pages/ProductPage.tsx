@@ -1,59 +1,85 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { newArrivals, bestSellers } from '../data/products';
+import { useProduct, useProducts } from '../hooks/useProducts';
 import { useGoldRate, computePriceBreakdown } from '../stores/goldRate';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import useDocumentTitle from '../lib/useDocumentTitle';
 import { FaWhatsapp } from 'react-icons/fa';
 
-export default function ProductPage() {
+function ProductPageContent() {
   const { id } = useParams();
-  const product = [...newArrivals, ...bestSellers].find(p => p.id === id);
-  if (!product) return (
-    <section className="section-padding">
-      <div className="max-content text-center">
-        <h1 className="font-serif text-2xl mb-4">Product Not Found</h1>
-        <p className="text-ink-600 mb-6">The product you're looking for doesn't exist.</p>
-        <Link to="/catalog" className="inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white rounded-lg hover:bg-brand-red-dark transition-colors">
-          Browse Products
-        </Link>
-      </div>
-    </section>
-  );
-
-  useDocumentTitle(product.title);
-  const inStock = product.inStock ?? true;
+  const { product, loading, error } = useProduct(id);
+  const { products: allProducts } = useProducts();
   const rate = useGoldRate(s => s.ratePerGramINR);
-  const netW = product.netWeightGrams ?? 4.0;
-  const { goldValue, making, gst, total } = computePriceBreakdown({ rate, netWeight: netW, makingPct: 10 });
-  const media = useMemo(() => product.images && product.images.length > 0 ? product.images : [product.image], [product]);
-  const [activeIdx, setActiveIdx] = useState(0);
   const [wishlist, setWishlist] = useLocalStorage<string[]>('wishlist', []);
-  const wished = wishlist.includes(product.id);
-  const toggleWish = () => setWishlist(prev => prev.includes(product.id) ? prev.filter(i => i !== product.id) : [...prev, product.id]);
+  const [activeIdx, setActiveIdx] = useState(0);
   const [reviews, setReviews] = useState<{name:string; rating:number; text:string; date:string;}[]>([]);
   const [myRating, setMyRating] = useState(5);
   const [myName, setMyName] = useState('');
   const [myText, setMyText] = useState('');
+  
+  useDocumentTitle(product?.title || 'Product');
+  
+  const avgRating = useMemo(() => {
+    if (reviews.length === 0) return 0;
+    const sum = reviews.reduce((s, r) => s + r.rating, 0);
+    return sum / reviews.length;
+  }, [reviews]);
+  
+  useEffect(() => {
+    if (!product) return;
+    try {
+      const key = `reviews:${product.id}`;
+      const saved = JSON.parse(localStorage.getItem(key) || '[]');
+      setReviews(Array.isArray(saved) ? saved : []);
+    } catch {}
+  }, [product]);
+
+  if (loading) {
+    return (
+      <section className="section-padding">
+        <div className="max-content text-center">
+          <div className="animate-pulse">
+            <div className="h-8 bg-gray-200 rounded w-48 mx-auto mb-4"></div>
+            <div className="h-4 bg-gray-200 rounded w-64 mx-auto"></div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+  
+  if (error || !product) {
+    return (
+      <section className="section-padding">
+        <div className="max-content text-center">
+          <h1 className="font-serif text-2xl mb-4">Product Not Found</h1>
+          <p className="text-ink-600 mb-6">The product you're looking for doesn't exist.</p>
+          <Link to="/catalog" className="inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white rounded-lg hover:bg-brand-red-dark transition-colors">
+            Browse Products
+          </Link>
+        </div>
+      </section>
+    );
+  }
+
+  const inStock = product.inStock ?? true;
+  const netW = product.netWeightGrams ?? 4.0;
+  const { goldValue, making, gst, total } = computePriceBreakdown({ rate, netWeight: netW, makingPct: 10 });
+  const media = product.images && product.images.length > 0 ? product.images : [product.image];
+  const wished = wishlist.includes(product.id);
+  
+  const toggleWish = () => {
+    setWishlist(prev => prev.includes(product.id) ? prev.filter(i => i !== product.id) : [...prev, product.id]);
+  };
   
   const handleEnquiry = () => {
     const message = `Hi, I'm interested in ${product.title}. Can you provide more details about this jewelry piece?`;
     window.open(`https://wa.me/919999999999?text=${encodeURIComponent(message)}`, '_blank');
   };
 
-  // Get related products
-  const allProducts = [...newArrivals, ...bestSellers];
   const relatedProducts = allProducts
-    .filter(p => p.id !== product.id && Math.abs(p.price - product.price) < 50000)
+    .filter(p => p.id !== product.id && Math.abs((p.price || 0) - (product.price || 0)) < 50000)
     .slice(0, 4);
-
-  useEffect(() => {
-    try {
-      const key = `reviews:${product.id}`;
-      const saved = JSON.parse(localStorage.getItem(key) || '[]');
-      setReviews(Array.isArray(saved) ? saved : []);
-    } catch {}
-  }, [product.id]);
 
   const submitReview = () => {
     if (!myName.trim() || !myText.trim()) return;
@@ -62,12 +88,6 @@ export default function ProductPage() {
     localStorage.setItem(`reviews:${product.id}`, JSON.stringify(next));
     setMyName(''); setMyText(''); setMyRating(5);
   };
-
-  const avgRating = useMemo(() => {
-    if (reviews.length === 0) return 0;
-    const sum = reviews.reduce((s, r) => s + r.rating, 0);
-    return sum / reviews.length;
-  }, [reviews]);
 
   return (
     <section className="section-padding">
@@ -227,4 +247,8 @@ export default function ProductPage() {
       </div>
     </section>
   );
+}
+
+export default function ProductPage() {
+  return <ProductPageContent />;
 }
