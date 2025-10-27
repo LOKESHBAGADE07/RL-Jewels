@@ -23,6 +23,7 @@ import BlogForm from '@/pages/admin/BlogForm';
 import BlogListPage from '@/pages/BlogListPage';
 import BlogPostPage from '@/pages/BlogPostPage';
 import InquiriesManager from '@/pages/admin/InquiriesManager';
+import AnalyticsDashboard from '@/pages/admin/AnalyticsDashboard';
 import ProtectedRoute from '@/components/ProtectedRoute';
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
           <Route path="blog/new" element={<BlogForm />} />
           <Route path="blog/edit/:id" element={<BlogForm />} />
           <Route path="inquiries" element={<InquiriesManager />} />
+          <Route path="analytics" element={<AnalyticsDashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,6 +1,6 @@
 import { Link, useNavigate, Outlet } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
-import { FiHome, FiPackage, FiLogOut, FiPlus, FiStar, FiFileText, FiMail } from 'react-icons/fi';
+import { FiHome, FiPackage, FiLogOut, FiPlus, FiStar, FiFileText, FiMail, FiBarChart2 } from 'react-icons/fi';
 
 export default function AdminLayout() {
   const navigate = useNavigate();
@@ -51,6 +51,13 @@ export default function AdminLayout() {
                 >
                   <FiMail />
                   <span>Inquiries</span>
+                </Link>
+                <Link
+                  to="/admin/analytics"
+                  className="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-700 hover:text-gray-900 transition-colors"
+                >
+                  <FiBarChart2 />
+                  <span>Analytics</span>
                 </Link>
                 <Link
                   to="/admin/products/new"
