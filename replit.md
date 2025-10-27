@@ -6,7 +6,17 @@ A beautiful jewelry showcase website for RL Jewels, a trusted jeweler in Jalgaon
 **Current State**: Fully functional showcase website with product galleries, collections, and inquiry options via WhatsApp. **Now includes admin system for product management!**
 
 ## Recent Changes (October 27, 2025)
-### Blog Section ✅ (Latest)
+### Customer Inquiry Tracking ✅ (Latest)
+- **✅ Admin Inquiry Manager**: View and manage all customer inquiries in one dashboard
+- **✅ Status Tracking**: Track inquiries through pipeline (New, Contacted, Resolved, Cancelled)
+- **✅ Admin Notes**: Add private notes to track follow-ups and conversations
+- **✅ Multi-Channel**: Track WhatsApp, phone, form, and other inquiries
+- **✅ Quick Actions**: Call or email customers directly from admin panel
+- **✅ Auto-Tracking**: Functions to automatically log WhatsApp and phone clicks
+- **✅ Database Ready**: SQL schema created in `INQUIRIES_DATABASE_SETUP.sql`
+- **Note**: Run SQL file in Supabase to activate feature (see SETUP_INQUIRIES.md)
+
+### Blog Section ✅
 - **✅ Admin Blog Manager**: Create, edit, publish, and delete blog posts from admin panel
 - **✅ Public Blog Pages**: Beautiful blog list and individual post pages for customers
 - **✅ Markdown Support**: Write rich content using Markdown formatting (headings, bold, lists, etc.)
@@ -129,6 +139,7 @@ src/
 - **Inventory Control**: Mark products as in-stock or out-of-stock
 - **Testimonials Manager**: Add customer video testimonials, approve/unapprove, set display order
 - **Blog Manager**: Create, edit, publish blog posts with Markdown support
+- **Inquiry Tracking**: View all customer inquiries, add notes, update status, contact customers
 - **Real-time Updates**: Changes appear immediately on public website
 - **Product Details**: Set price (stored privately), purity, weight, tags, badges, and more
 - **Note**: Prices are stored in database but NOT displayed publicly on website
@@ -251,9 +262,9 @@ To add more admins, update the Supabase Auth settings in the Supabase dashboard.
 ## Future Enhancements (In Progress)
 - ✅ Customer testimonial videos - **COMPLETE!**
 - ✅ Blog section for jewelry care tips - **COMPLETE!**
-- 🔄 Multilingual support (Marathi/Hindi) - **NEXT UP**
-- 🔄 Product analytics dashboard - **PLANNED**
-- 🔄 Customer inquiry tracking - **PLANNED**
+- ✅ Customer inquiry tracking - **COMPLETE!**
+- 🔄 Product analytics dashboard - **NEXT UP**
+- 🔄 Multilingual support (Marathi/Hindi) - **PLANNED**
 - Add more product images and videos
 - Integrate Google Maps for store location
 - Add virtual showroom tour
