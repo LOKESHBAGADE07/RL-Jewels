@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { getApprovedTestimonials } from '../lib/testimonials-database';
 import { Testimonial } from '../types/testimonial';
 import SectionTitle from '../components/SectionTitle';
+import { useLanguageStore } from '../stores/languageStore';
 
 export const TestimonialsSection: React.FC = () => {
+  const { t } = useLanguageStore();
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -31,8 +33,8 @@ export const TestimonialsSection: React.FC = () => {
     <section className="section-padding bg-neutral-50">
       <div className="max-content">
         <SectionTitle 
-          title="What Our Customers Say" 
-          subtitle="Real experiences from happy customers" 
+          title={t.testimonials_title} 
+          subtitle={t.testimonials_subtitle} 
         />
         
         <div className="grid md:grid-cols-3 gap-8 mb-8">
@@ -78,7 +80,7 @@ export const TestimonialsSection: React.FC = () => {
             to="/testimonials"
             className="inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white rounded-lg hover:bg-brand-red/90 transition-colors font-semibold"
           >
-            View All Reviews
+            {t.view_all_reviews}
           </Link>
         </div>
       </div>

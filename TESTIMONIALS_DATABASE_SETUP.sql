@@ -22,6 +22,10 @@ CREATE TABLE IF NOT EXISTS testimonials (
 -- Enable Row Level Security
 ALTER TABLE testimonials ENABLE ROW LEVEL SECURITY;
 
+-- Drop existing policies if they exist (to avoid duplicate policy errors)
+DROP POLICY IF EXISTS "Anyone can view approved testimonials" ON testimonials;
+DROP POLICY IF EXISTS "Admin can manage testimonials" ON testimonials;
+
 -- Public can view approved testimonials only
 CREATE POLICY "Anyone can view approved testimonials" ON testimonials
   FOR SELECT USING (is_approved = true);

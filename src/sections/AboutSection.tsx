@@ -2,19 +2,21 @@ import SectionTitle from '../components/SectionTitle';
 import TrustBadge from '../components/TrustBadge';
 import { FaCertificate, FaGem, FaBalanceScale } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { useLanguageStore } from '../stores/languageStore';
 
 export const AboutSection = () => {
+  const { t } = useLanguageStore();
   const badges = [
-    { icon: <FaCertificate />, text: 'BIS Hallmark' },
-    { icon: <FaGem />, text: '100% Purity' },
-    { icon: <FaBalanceScale />, text: 'Transparent Pricing' }
+    { icon: <FaCertificate />, text: t.badge_bis_hallmark },
+    { icon: <FaGem />, text: t.badge_purity },
+    { icon: <FaBalanceScale />, text: t.badge_transparent_pricing }
   ];
   return (
   <section id="about" className="section-padding section-accent-bg">
       <div className="max-content">
-        <SectionTitle subtitle="Heritage & Trust" title="About RL Jewels" />
+        <SectionTitle subtitle={t.about_subtitle} title={t.about_title} />
         <p className="max-w-3xl mx-auto text-center text-text-secondary leading-relaxed">
-          Serving Jalgaon with purity, transparency and craftsmanship. Our legacy blends tradition and modern design to bring you jewelry that reflects trust and elegance.
+          {t.about_description}
         </p>
         <div className="mt-12 grid grid-cols-3 max-w-xl mx-auto gap-4">
           {badges.map((b,i) => (

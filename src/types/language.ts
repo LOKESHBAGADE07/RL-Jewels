@@ -68,6 +68,51 @@ export interface Translation {
   // Messaging
   no_online_sales: string;
   visit_store_pricing: string;
+  
+  // Sections
+  about_title: string;
+  about_subtitle: string;
+  about_description: string;
+  testimonials_title: string;
+  testimonials_subtitle: string;
+  view_all_reviews: string;
+  occasions_title: string;
+  occasions_subtitle: string;
+  view_all_occasions: string;
+  why_choose_title: string;
+  why_choose_subtitle: string;
+  faq_title: string;
+  faq_subtitle: string;
+  
+  // Footer
+  footer_quick_links: string;
+  footer_information: string;
+  footer_certifications: string;
+  footer_connect: string;
+  footer_stay_updated: string;
+  footer_newsletter_desc: string;
+  footer_visit_store: string;
+  footer_visit_store_desc: string;
+  footer_store_name: string;
+  footer_store_location: string;
+  footer_store_since: string;
+  subscribe: string;
+  enter_email: string;
+  
+  // Trust Badges
+  badge_bis_hallmark: string;
+  badge_certified: string;
+  badge_purity: string;
+  badge_transparent_pricing: string;
+  
+  // Links
+  about_us: string;
+  terms_conditions: string;
+  privacy_policy: string;
+  faqs: string;
+  explore: string;
+  products: string;
+  items: string;
 }
 
 export const translations: Record<Language, Translation> = {
@@ -139,6 +184,51 @@ export const translations: Record<Language, Translation> = {
     // Messaging
     no_online_sales: 'We don\'t sell online',
     visit_store_pricing: 'Visit our showroom or contact us for pricing and purchase',
+    
+    // Sections
+    about_title: 'About RL Jewels',
+    about_subtitle: 'Heritage & Trust',
+    about_description: 'Serving Jalgaon with purity, transparency and craftsmanship. Our legacy blends tradition and modern design to bring you jewelry that reflects trust and elegance.',
+    testimonials_title: 'What Our Customers Say',
+    testimonials_subtitle: 'Real experiences from happy customers',
+    view_all_reviews: 'View All Reviews',
+    occasions_title: 'Shop By Occasion',
+    occasions_subtitle: 'Curated picks',
+    view_all_occasions: 'View All Occasions',
+    why_choose_title: 'Why Choose Us',
+    why_choose_subtitle: 'Trusted Jeweler Since 1984',
+    faq_title: 'Frequently Asked Questions',
+    faq_subtitle: 'Support',
+    
+    // Footer
+    footer_quick_links: 'Quick Links',
+    footer_information: 'Information',
+    footer_certifications: 'Certifications',
+    footer_connect: 'Connect With Us',
+    footer_stay_updated: 'Stay Updated',
+    footer_newsletter_desc: 'Subscribe to our newsletter for the latest collections and offers',
+    footer_visit_store: 'Visit Our Store',
+    footer_visit_store_desc: 'Experience our exquisite jewelry collection in person',
+    footer_store_name: 'RL Jewels',
+    footer_store_location: 'Jalgaon, Maharashtra',
+    footer_store_since: 'Since 1984',
+    subscribe: 'Subscribe',
+    enter_email: 'Enter your email',
+    
+    // Trust Badges
+    badge_bis_hallmark: 'BIS Hallmark',
+    badge_certified: 'Certified Jewelry',
+    badge_purity: '100% Purity',
+    badge_transparent_pricing: 'Transparent Pricing',
+    
+    // Links
+    about_us: 'About Us',
+    terms_conditions: 'Terms & Conditions',
+    privacy_policy: 'Privacy Policy',
+    faqs: 'FAQs',
+    explore: 'Explore',
+    products: 'products',
+    items: 'items',
   },
   
   hi: {
@@ -209,6 +299,51 @@ export const translations: Record<Language, Translation> = {
     // Messaging
     no_online_sales: 'हम ऑनलाइन नहीं बेचते',
     visit_store_pricing: 'मूल्य और खरीदारी के लिए हमारे शोरूम पर जाएं या संपर्क करें',
+    
+    // Sections
+    about_title: 'आरएल ज्वेल्स के बारे में',
+    about_subtitle: 'विरासत और विश्वास',
+    about_description: 'शुद्धता, पारदर्शिता और कारीगरी के साथ जलगांव की सेवा करना। हमारी विरासत परंपरा और आधुनिक डिजाइन को मिश्रित करती है ताकि आपको विश्वास और शान का आभूषण मिल सके।',
+    testimonials_title: 'हमारे ग्राहक क्या कहते हैं',
+    testimonials_subtitle: 'खुश ग्राहकों के वास्तविक अनुभव',
+    view_all_reviews: 'सभी समीक्षाएँ देखें',
+    occasions_title: 'अवसर के अनुसार खरीदें',
+    occasions_subtitle: 'चयनित संग्रह',
+    view_all_occasions: 'सभी अवसर देखें',
+    why_choose_title: 'हमें क्यों चुनें',
+    why_choose_subtitle: '1984 से विश्वसनीय ज्वेलर',
+    faq_title: 'अक्सर पूछे जाने वाले प्रश्न',
+    faq_subtitle: 'सहायता',
+    
+    // Footer
+    footer_quick_links: 'त्वरित लिंक',
+    footer_information: 'जानकारी',
+    footer_certifications: 'प्रमाणपत्र',
+    footer_connect: 'हमसे जुड़ें',
+    footer_stay_updated: 'अपडेट रहें',
+    footer_newsletter_desc: 'नवीनतम संग्रह और ऑफ़र के लिए हमारे न्यूज़लेटर की सदस्यता लें',
+    footer_visit_store: 'हमारे स्टोर पर जाएं',
+    footer_visit_store_desc: 'हमारे उत्कृष्ट आभूषण संग्रह का व्यक्तिगत रूप से अनुभव करें',
+    footer_store_name: 'आरएल ज्वेल्स',
+    footer_store_location: 'जलगांव, महाराष्ट्र',
+    footer_store_since: '1984 से',
+    subscribe: 'सदस्यता लें',
+    enter_email: 'अपना ईमेल दर्ज करें',
+    
+    // Trust Badges
+    badge_bis_hallmark: 'BIS हॉलमार्क',
+    badge_certified: 'प्रमाणित आभूषण',
+    badge_purity: '100% शुद्धता',
+    badge_transparent_pricing: 'पारदर्शी मूल्य निर्धारण',
+    
+    // Links
+    about_us: 'हमारे बारे में',
+    terms_conditions: 'नियम और शर्तें',
+    privacy_policy: 'गोपनीयता नीति',
+    faqs: 'सामान्य प्रश्न',
+    explore: 'खोजें',
+    products: 'उत्पाद',
+    items: 'वस्तुएं',
   },
   
   mr: {
@@ -279,5 +414,50 @@ export const translations: Record<Language, Translation> = {
     // Messaging
     no_online_sales: 'आम्ही ऑनलाइन विक्री करत नाही',
     visit_store_pricing: 'किंमत आणि खरेदीसाठी आमच्या शोरूमला भेट द्या किंवा संपर्क साधा',
+    
+    // Sections
+    about_title: 'आरएल ज्वेल्स बद्दल',
+    about_subtitle: 'वारसा आणि विश्वास',
+    about_description: 'शुद्धता, पारदर्शकता आणि कारागिरी सह जळगाव ला सेवा देणे. आमचा वारसा परंपरा आणि आधुनिक डिझाइन एकत्र करतो जेणेकरून तुम्हाला विश्वास आणि सुंदरतेचे दागिने मिळतील.',
+    testimonials_title: 'आमचे ग्राहक काय म्हणतात',
+    testimonials_subtitle: 'आनंदी ग्राहकांचे वास्तविक अनुभव',
+    view_all_reviews: 'सर्व पुनरावलोकने पहा',
+    occasions_title: 'प्रसंगानुसार खरेदी करा',
+    occasions_subtitle: 'निवडक संग्रह',
+    view_all_occasions: 'सर्व प्रसंग पहा',
+    why_choose_title: 'आम्हाला का निवडा',
+    why_choose_subtitle: '1984 पासून विश्वसनीय ज्वेलर',
+    faq_title: 'वारंवार विचारले जाणारे प्रश्न',
+    faq_subtitle: 'मदत',
+    
+    // Footer
+    footer_quick_links: 'द्रुत दुवे',
+    footer_information: 'माहिती',
+    footer_certifications: 'प्रमाणपत्रे',
+    footer_connect: 'आमच्याशी जोडा',
+    footer_stay_updated: 'अद्ययावत रहा',
+    footer_newsletter_desc: 'नवीनतम संग्रह आणि ऑफरसाठी आमच्या वृत्तपत्राची सदस्यता घ्या',
+    footer_visit_store: 'आमच्या स्टोअरला भेट द्या',
+    footer_visit_store_desc: 'आमच्या उत्कृष्ट दागिन्यांच्या संग्रहाचा वैयक्तिकरित्या अनुभव घ्या',
+    footer_store_name: 'आरएल ज्वेल्स',
+    footer_store_location: 'जळगाव, महाराष्ट्र',
+    footer_store_since: '1984 पासून',
+    subscribe: 'सदस्यता घ्या',
+    enter_email: 'आपला ईमेल प्रविष्ट करा',
+    
+    // Trust Badges
+    badge_bis_hallmark: 'BIS हॉलमार्क',
+    badge_certified: 'प्रमाणित दागिने',
+    badge_purity: '100% शुद्धता',
+    badge_transparent_pricing: 'पारदर्शक किंमत',
+    
+    // Links
+    about_us: 'आमच्याबद्दल',
+    terms_conditions: 'अटी आणि शर्ती',
+    privacy_policy: 'गोपनीयता धोरण',
+    faqs: 'सामान्य प्रश्न',
+    explore: 'अन्वेषण करा',
+    products: 'उत्पादने',
+    items: 'वस्तू',
   },
 };

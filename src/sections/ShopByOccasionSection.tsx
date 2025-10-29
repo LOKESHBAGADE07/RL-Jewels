@@ -2,12 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SectionTitle from '../components/SectionTitle';
 import { occasions } from '../data/occasions';
+import { useLanguageStore } from '../stores/languageStore';
 
 export const ShopByOccasionSection: React.FC = () => {
+  const { t } = useLanguageStore();
   return (
     <section id="occasions" className="section-padding bg-white">
       <div className="max-content">
-        <SectionTitle title="Shop By Occasion" subtitle="Curated picks" />
+        <SectionTitle title={t.occasions_title} subtitle={t.occasions_subtitle} />
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-8">
           {occasions.map(occasion => (
             <Link 
@@ -36,7 +38,7 @@ export const ShopByOccasionSection: React.FC = () => {
               <div className="p-4">
                 <h3 className="font-medium tracking-wide text-sm mb-1 group-hover:text-brand-red transition-colors">{occasion.title}</h3>
                 <p className="text-xs text-neutral-600 line-clamp-2 mb-2">{occasion.description}</p>
-                <span className="text-brand-red text-xs font-semibold tracking-wide group-hover:underline">Explore</span>
+                <span className="text-brand-red text-xs font-semibold tracking-wide group-hover:underline">{t.explore}</span>
               </div>
               <span className="absolute inset-0 ring-1 ring-inset ring-accent-gold/0 group-hover:ring-accent-gold/40 transition" />
             </Link>
@@ -47,7 +49,7 @@ export const ShopByOccasionSection: React.FC = () => {
             to="/occasions" 
             className="inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white rounded-lg hover:bg-brand-red/90 transition-colors font-semibold"
           >
-            View All Occasions
+            {t.view_all_occasions}
           </Link>
         </div>
       </div>
