@@ -3,6 +3,7 @@ import { FiSearch, FiMenu, FiX, FiPhone } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import Navigation from './Navigation';
 import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguageStore } from '../stores/languageStore';
 import { Link } from 'react-scroll';
 import logo from '../assets/logo.png';
 import { bestSellers, newArrivals, Product } from '../data/products';
@@ -10,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const Header = () => {
   const navigate = useNavigate();
+  const { t } = useLanguageStore();
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState('');
@@ -54,9 +56,18 @@ export const Header = () => {
       {open && (
   <div id="mobile-nav" className="lg:hidden absolute inset-x-0 top-20 bg-white/95 backdrop-blur-md p-8 space-y-6 border-b border-surface-300" role="dialog" aria-modal="true" aria-label="Mobile navigation menu">
           <nav className="flex flex-col gap-4 text-lg" aria-label="Mobile Primary">
-            {['home','collections','occasions','savings','heritage','faq','blog','contact'].map(id => (
-              <Link key={id} to={id} smooth offset={-80} duration={500} onClick={()=>setOpen(false)} className="py-2 border-b border-white/10">
-                {id.replace(/\w/, c=>c.toUpperCase()).replace('-', ' ')}
+            {[
+              { id: 'home', label: t.nav_home },
+              { id: 'collections', label: t.nav_collections },
+              { id: 'occasions', label: t.nav_occasions },
+              { id: 'savings', label: t.nav_savings },
+              { id: 'heritage', label: t.nav_heritage },
+              { id: 'faq', label: t.nav_faq },
+              { id: 'blog', label: t.nav_blog },
+              { id: 'contact', label: t.nav_contact }
+            ].map(item => (
+              <Link key={item.id} to={item.id} smooth offset={-80} duration={500} onClick={()=>setOpen(false)} className="py-2 border-b border-white/10">
+                {item.label}
               </Link>
             ))}
           </nav>
@@ -78,7 +89,7 @@ export const Header = () => {
                 autoFocus
                 value={query}
                 onChange={e=>setQuery(e.target.value)}
-                placeholder="Search products (e.g., Ring, Necklace)"
+                placeholder={t.search_placeholder}
                 className="flex-1 bg-white text-ink-900 placeholder-ink-500 outline-none"
               />
               <button onClick={() => setSearchOpen(false)} aria-label="Close search" className="text-2xl text-ink-500 hover:text-brand-red"><FiX /></button>

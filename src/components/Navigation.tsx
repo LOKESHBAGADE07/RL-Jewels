@@ -1,22 +1,37 @@
 import { Link } from 'react-scroll';
 import { useMemo } from 'react';
 import useActiveSection from '../hooks/useActiveSection';
+import { useLanguageStore } from '../stores/languageStore';
 
-const links = [
-  { to: 'home', label: 'Home' },
-  { to: 'collections', label: 'Collections' },
-  { to: 'occasions', label: 'Occasions' },
-  { to: 'savings', label: 'Savings Plan' },
-  { to: 'heritage', label: 'Heritage' },
-  { to: 'testimonials', label: 'Reviews' },
-  { to: 'faq', label: 'FAQ' },
-  { to: 'blog', label: 'Blog' },
-  { to: 'contact', label: 'Contact' }
+const linkIds = [
+  'home',
+  'collections',
+  'occasions',
+  'savings',
+  'heritage',
+  'testimonials',
+  'faq',
+  'blog',
+  'contact'
 ];
 
 export const Navigation = ({ onClick }: { onClick?: () => void }) => {
-  const ids = useMemo(() => links.map(l => l.to), []);
+  const { t } = useLanguageStore();
+  const ids = useMemo(() => linkIds, []);
   const active = useActiveSection(ids);
+  
+  const links = [
+    { to: 'home', label: t.nav_home },
+    { to: 'collections', label: t.nav_collections },
+    { to: 'occasions', label: t.nav_occasions },
+    { to: 'savings', label: t.nav_savings },
+    { to: 'heritage', label: t.nav_heritage },
+    { to: 'testimonials', label: t.nav_reviews },
+    { to: 'faq', label: t.nav_faq },
+    { to: 'blog', label: t.nav_blog },
+    { to: 'contact', label: t.nav_contact }
+  ];
+  
   return (
     <ul className="hidden lg:flex gap-8 items-center" role="menubar" aria-label="Primary">
       {links.map(l => {
