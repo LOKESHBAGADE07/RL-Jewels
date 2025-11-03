@@ -4,7 +4,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import Navigation from './Navigation';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguageStore } from '../stores/languageStore';
-import { Link } from 'react-scroll';
+import { Link as RouterLink } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import { bestSellers, newArrivals, Product } from '../data/products';
 import { useNavigate } from 'react-router-dom';
@@ -35,17 +35,14 @@ export const Header = () => {
   return (
   <header className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur border-b border-surface-300" role="banner">
       <div className="max-content flex items-center justify-between h-20 px-4">
-        <Link to="home" smooth offset={-80} className="flex items-center gap-2 cursor-pointer" aria-label="RL Jewels Home">
+        <RouterLink to="/" className="flex items-center gap-2 cursor-pointer" aria-label="RL Jewels Home">
           <img src={logo} alt="RL Jewels" className="h-12 w-auto" loading="lazy" />
-        </Link>
+        </RouterLink>
         <Navigation />
         <div className="hidden lg:flex items-center gap-3 text-xl text-ink-700">
           <LanguageSwitcher />
           <button aria-label="Search" onClick={() => setSearchOpen(true)} className="hover:text-brand-red transition"><FiSearch /></button>
-          <a aria-label="Call us" href="tel:+919999999999" className="hover:text-brand-red transition">
-            <FiPhone />
-          </a>
-          <a aria-label="WhatsApp" href="https://wa.me/919999999999?text=Hi, I'm interested in RL Jewels collection" target="_blank" rel="noopener noreferrer" className="hover:text-brand-red transition">
+          <a aria-label="WhatsApp" href="https://wa.me/918767204972?text=Hi, I'm interested in RL Jewels collection" target="_blank" rel="noopener noreferrer" className="hover:text-brand-red transition">
             <FaWhatsapp />
           </a>
         </div>
@@ -57,25 +54,24 @@ export const Header = () => {
   <div id="mobile-nav" className="lg:hidden absolute inset-x-0 top-20 bg-white/95 backdrop-blur-md p-8 space-y-6 border-b border-surface-300" role="dialog" aria-modal="true" aria-label="Mobile navigation menu">
           <nav className="flex flex-col gap-4 text-lg" aria-label="Mobile Primary">
             {[
-              { id: 'home', label: t.nav_home },
-              { id: 'collections', label: t.nav_collections },
-              { id: 'occasions', label: t.nav_occasions },
-              { id: 'savings', label: t.nav_savings },
-              { id: 'heritage', label: t.nav_heritage },
-              { id: 'faq', label: t.nav_faq },
-              { id: 'blog', label: t.nav_blog },
-              { id: 'contact', label: t.nav_contact }
+              { id: 'home', label: t.nav_home, route: '/' },
+              { id: 'collections', label: t.nav_collections, route: '/collections' },
+              { id: 'occasions', label: t.nav_occasions, route: '/#occasions' },
+              { id: 'savings', label: t.nav_savings, route: '/#savings' },
+              { id: 'heritage', label: t.nav_heritage, route: '/#heritage' },
+              { id: 'faq', label: t.nav_faq, route: '/#faq' },
+              { id: 'blog', label: t.nav_blog, route: '/blog' },
+              { id: 'contact', label: t.nav_contact, route: '/#contact' }
             ].map(item => (
-              <Link key={item.id} to={item.id} smooth offset={-80} duration={500} onClick={()=>setOpen(false)} className="py-2 border-b border-white/10">
+              <RouterLink key={item.id} to={item.route} onClick={()=>setOpen(false)} className="py-2 border-b border-white/10">
                 {item.label}
-              </Link>
+              </RouterLink>
             ))}
           </nav>
           <div className="flex items-center gap-6 text-2xl pt-4">
             <LanguageSwitcher />
             <button onClick={() => { setSearchOpen(true); setOpen(false); }} aria-label="Search"><FiSearch /></button>
-            <a href="tel:+919999999999" aria-label="Call us"><FiPhone /></a>
-            <a href="https://wa.me/919999999999?text=Hi, I'm interested in RL Jewels collection" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><FaWhatsapp /></a>
+            <a href="https://wa.me/918767204972?text=Hi, I'm interested in RL Jewels collection" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><FaWhatsapp /></a>
           </div>
         </div>
       )}

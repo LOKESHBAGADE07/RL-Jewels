@@ -71,12 +71,12 @@ export default function AdminDashboard() {
               placeholder="Search products..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+              className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
             />
           </div>
           <Link
             to="/admin/products/new"
-            className="flex items-center justify-center space-x-2 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition-colors"
+            className="flex items-center justify-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
           >
             <FiPlus />
             <span>Add New Product</span>
@@ -99,7 +99,7 @@ export default function AdminDashboard() {
 
       {loading ? (
         <div className="text-center py-12">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600 mx-auto"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto"></div>
           <p className="mt-4 text-gray-600">Loading products...</p>
         </div>
       ) : !error && filteredProducts.length === 0 ? (
@@ -114,7 +114,7 @@ export default function AdminDashboard() {
           {!searchQuery && (
             <Link
               to="/admin/products/new"
-              className="inline-flex items-center space-x-2 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition-colors"
+              className="inline-flex items-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
             >
               <FiPlus />
               <span>Add First Product</span>
@@ -131,13 +131,10 @@ export default function AdminDashboard() {
                     Product
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Price
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Purity
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Weight
+                    Tags
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Status
@@ -159,24 +156,20 @@ export default function AdminDashboard() {
                         />
                         <div className="ml-4">
                           <div className="text-sm font-medium text-gray-900">{product.title}</div>
-                          <div className="text-sm text-gray-500">{(product.tags || []).join(', ')}</div>
+                          {product.badge && (
+                            <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800 mt-1">
+                              {product.badge}
+                            </span>
+                          )}
                         </div>
                       </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">₹{product.price.toLocaleString()}</div>
-                      {product.originalPrice && (
-                        <div className="text-sm text-gray-500 line-through">
-                          ₹{product.originalPrice.toLocaleString()}
-                        </div>
-                      )}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm text-gray-900">{product.purity || 'N/A'}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">
-                        {product.netWeightGrams ? `${product.netWeightGrams}g` : 'N/A'}
+                      <div className="text-sm text-gray-500">
+                        {(product.tags || []).length > 0 ? (product.tags || []).join(', ') : 'No tags'}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -194,7 +187,7 @@ export default function AdminDashboard() {
                       <div className="flex items-center justify-end space-x-2">
                         <Link
                           to={`/admin/products/edit/${product.id}`}
-                          className="text-amber-600 hover:text-amber-900 p-2 hover:bg-amber-50 rounded-lg transition-colors"
+                          className="text-red-600 hover:text-red-900 p-2 hover:bg-red-50 rounded-lg transition-colors"
                           title="Edit product"
                         >
                           <FiEdit2 />

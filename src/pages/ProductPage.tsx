@@ -5,6 +5,7 @@ import { useGoldRate, computePriceBreakdown } from '../stores/goldRate';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import useDocumentTitle from '../lib/useDocumentTitle';
 import { FaWhatsapp } from 'react-icons/fa';
+import { trackProductView } from '../lib/analytics-database';
 
 function ProductPageContent() {
   const { id } = useParams();
@@ -28,6 +29,13 @@ function ProductPageContent() {
   
   useEffect(() => {
     if (!product) return;
+    
+    // Track product view
+    trackProductView(product.id, product.title).catch(err => 
+      console.error('Failed to track product view:', err)
+    );
+    
+    // Load reviews
     try {
       const key = `reviews:${product.id}`;
       const saved = JSON.parse(localStorage.getItem(key) || '[]');

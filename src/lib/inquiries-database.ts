@@ -94,7 +94,7 @@ export async function deleteInquiry(id: string): Promise<boolean> {
 }
 
 export async function updateInquiryStatus(id: string, status: string): Promise<Inquiry | null> {
-  return updateInquiry(id, { status });
+  return updateInquiry(id, { status: status as Inquiry['status'] });
 }
 
 export async function addInquiryNote(id: string, note: string): Promise<Inquiry | null> {

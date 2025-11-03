@@ -31,11 +31,11 @@ export const ContactSection = () => {
               </li>
               <li className="flex gap-3 items-start">
                 <FaPhone className="text-brand-red mt-0.5 flex-shrink-0" />
-                <a href="tel:+919999999999" className="hover:text-brand-red transition">+91 99999 99999</a>
+                <a href="tel:+918767204972" className="hover:text-brand-red transition">+91 87672 04972</a>
               </li>
               <li className="flex gap-3 items-start">
                 <FaWhatsapp className="text-brand-red mt-0.5 flex-shrink-0" />
-                <a href="https://wa.me/919999999999?text=Hi, I want to know more about RL Jewels" target="_blank" rel="noopener noreferrer" className="hover:text-brand-red transition">Chat on WhatsApp</a>
+                <a href="https://wa.me/918767204972?text=Hi, I want to know more about RL Jewels" target="_blank" rel="noopener noreferrer" className="hover:text-brand-red transition">Chat on WhatsApp</a>
               </li>
               <li className="flex gap-3 items-start">
                 <FaEnvelope className="text-brand-red mt-0.5 flex-shrink-0" />

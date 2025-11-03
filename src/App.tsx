@@ -24,6 +24,10 @@ import BlogListPage from '@/pages/BlogListPage';
 import BlogPostPage from '@/pages/BlogPostPage';
 import InquiriesManager from '@/pages/admin/InquiriesManager';
 import AnalyticsDashboard from '@/pages/admin/AnalyticsDashboard';
+import CollectionsManager from '@/pages/admin/CollectionsManager';
+import CollectionForm from '@/pages/admin/CollectionForm';
+import HeroBannersManager from '@/pages/admin/HeroBannersManager';
+import HeroBannerForm from '@/pages/admin/HeroBannerForm';
 import ProtectedRoute from '@/components/ProtectedRoute';
 
 function App() {
@@ -60,6 +64,12 @@ function App() {
           <Route path="blog/edit/:id" element={<BlogForm />} />
           <Route path="inquiries" element={<InquiriesManager />} />
           <Route path="analytics" element={<AnalyticsDashboard />} />
+          <Route path="collections" element={<CollectionsManager />} />
+          <Route path="collections/new" element={<CollectionForm />} />
+          <Route path="collections/edit/:id" element={<CollectionForm />} />
+          <Route path="hero-banners" element={<HeroBannersManager />} />
+          <Route path="hero-banners/new" element={<HeroBannerForm />} />
+          <Route path="hero-banners/edit/:id" element={<HeroBannerForm />} />
         </Route>
       </Routes>
     </BrowserRouter>

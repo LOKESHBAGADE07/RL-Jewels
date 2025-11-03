@@ -1,11 +1,50 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SectionTitle from '../components/SectionTitle';
-import { collections } from '../data/collections';
+import { getCollections } from '../lib/collections-database';
+
+interface Collection {
+  id: string;
+  title: string;
+  description: string;
+  image_url: string | null;
+  featured: boolean;
+  sort_order: number;
+}
 
 export const CollectionsSection = () => {
-  // Show only featured collections on homepage
-  const featuredCollections = collections.filter(c => c.featured).slice(0, 4);
+  const [featuredCollections, setFeaturedCollections] = useState<Collection[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadFeaturedCollections() {
+      const data = await getCollections();
+      if (data) {
+        // Show only featured collections, sorted by sort_order, max 4
+        const featured = data
+          .filter(c => c.featured)
+          .sort((a, b) => a.sort_order - b.sort_order)
+          .slice(0, 4);
+        setFeaturedCollections(featured);
+      }
+      setLoading(false);
+    }
+    loadFeaturedCollections();
+  }, []);
+
+  if (loading) {
+    return (
+      <section id="collections" className="section-padding bg-white/5">
+        <div className="max-content">
+          <SectionTitle subtitle="Explore" title="Our Collections" />
+          <div className="text-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto"></div>
+            <p className="mt-4 text-gray-600">Loading collections...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="collections" className="section-padding bg-white/5">
@@ -20,7 +59,7 @@ export const CollectionsSection = () => {
             >
               <div className="aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-accent-gold/20 to-accent-gold/10 flex items-center justify-center">
                 <img 
-                  src={collection.image} 
+                  src={collection.image_url || '/assets/products/necklace.svg'} 
                   alt={collection.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"

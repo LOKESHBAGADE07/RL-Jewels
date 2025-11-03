@@ -1,5 +1,5 @@
 import { supabase } from './supabase';
-import { ProductView, SearchQuery, AnalyticsSummary } from '../types/analytics';
+import { ProductView, SearchQuery, AnalyticsSummary, InquiryTrend } from '../types/analytics';
 
 export async function trackProductView(productId: string, productName: string): Promise<void> {
   try {
@@ -85,7 +85,7 @@ export async function getAnalyticsSummary(days: number = 30): Promise<AnalyticsS
     total_searches: searchesResult.count || 0,
     popular_products: popularProducts,
     recent_searches: recentSearches.slice(0, 10),
-    inquiry_trends: inquiryTrends,
+    inquiry_trends: inquiryTrends as InquiryTrend[],
   };
 }
 

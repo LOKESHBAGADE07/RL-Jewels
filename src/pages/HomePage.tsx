@@ -5,7 +5,6 @@ import NewArrivalsSection from '../sections/NewArrivalsSection';
 import BestSellersSection from '../sections/BestSellersSection';
 import PromisesSection from '../sections/PromisesSection';
 import SavingsPlanSection from '../sections/SavingsPlanSection';
-import SavingsCalculator from '../components/SavingsCalculator';
 import ShopByOccasionSection from '../sections/ShopByOccasionSection';
 import HeritageTimelineSection from '../sections/HeritageTimelineSection';
 import FAQSection from '../sections/FAQSection';
@@ -30,7 +29,6 @@ export default function HomePage() {
         <AboutSection />
         <ShopByOccasionSection />
         <SavingsPlanSection />
-        <SavingsCalculator />
         <LoyaltyProgramSection />
         <HeritageTimelineSection />
         <PromisesSection />

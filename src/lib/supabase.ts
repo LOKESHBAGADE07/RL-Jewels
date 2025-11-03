@@ -16,7 +16,7 @@ export interface Product {
   title: string;
   image: string;
   images?: string[];
-  price: number;
+  price?: number;
   original_price?: number;
   badge?: string;
   tags: string[];
@@ -34,7 +34,7 @@ export function toLocalProduct(product: Product): LocalProduct {
     id: product.id,
     title: product.title,
     image: product.image,
-    price: product.price,
+    price: product.price || 0,
     originalPrice: product.original_price,
     tags: product.tags,
     badge: product.badge,

@@ -4,8 +4,24 @@
 @tailwind components;
 @tailwind utilities;
 
-html { scroll-behavior: smooth; }
-body { @apply bg-surface-100 text-ink-900 font-sans antialiased; }
+html { 
+  scroll-behavior: smooth;
+}
+
+body { 
+  @apply bg-surface-100 text-ink-900 font-sans antialiased; 
+}
+
+/* Performance optimizations for smooth scrolling */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  content-visibility: auto;
+  will-change: transform;
+}
 :root {
 	--brand-grad: linear-gradient(135deg,#9b0d17 0%,#c01622 55%,#d53625 100%);
 }

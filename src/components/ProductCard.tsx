@@ -4,6 +4,7 @@ import { Product } from '../data/products';
 import { FaHeart, FaRegHeart, FaWhatsapp } from 'react-icons/fa';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { Link } from 'react-router-dom';
+import OptimizedImage from './OptimizedImage';
 
 type Props = { product: Product };
 
@@ -19,7 +20,7 @@ export const ProductCard = ({ product }: Props) => {
   
   const handleEnquiry = () => {
     const message = `Hi, I'm interested in ${product.title}. Can you provide more details?`;
-    window.open(`https://wa.me/919999999999?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/918767204972?text=${encodeURIComponent(message)}`, '_blank');
   };
   return (
     <motion.div
@@ -28,14 +29,13 @@ export const ProductCard = ({ product }: Props) => {
       className="group relative bg-white/5 border border-white/10 rounded-xl overflow-hidden backdrop-blur-sm"
     >
       <Link to={`/product/${product.id}`} className="relative h-56 w-full overflow-hidden block cursor-pointer" aria-label={`${product.title} details`}>
-        <img
+        <OptimizedImage
           src={product.image}
           alt={product.title}
-          loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="transition-transform duration-500 group-hover:scale-105"
         />
         {product.badge && (
-          <span className="absolute left-2 top-2 bg-accent-gold text-ink-900 text-[10px] font-semibold px-2 py-1 rounded uppercase tracking-wide">
+          <span className="absolute left-2 top-2 bg-accent-gold text-ink-900 text-[10px] font-semibold px-2 py-1 rounded uppercase tracking-wide z-10">
             {product.badge}
           </span>
         )}

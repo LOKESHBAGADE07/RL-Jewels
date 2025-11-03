@@ -13,11 +13,7 @@ export default function ProductForm() {
   const [uploading, setUploading] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
-    price: '',
-    original_price: '',
     purity: '22K',
-    gross_weight_grams: '',
-    net_weight_grams: '',
     in_stock: true,
     badge: '',
     tags: '',
@@ -39,11 +35,7 @@ export default function ProductForm() {
     if (product) {
       setFormData({
         title: product.title,
-        price: product.price.toString(),
-        original_price: product.originalPrice?.toString() || '',
         purity: product.purity || '22K',
-        gross_weight_grams: product.grossWeightGrams?.toString() || '',
-        net_weight_grams: product.netWeightGrams?.toString() || '',
         in_stock: product.inStock ?? true,
         badge: product.badge || '',
         tags: (product.tags || []).join(', '),
@@ -109,11 +101,7 @@ export default function ProductForm() {
         title: formData.title,
         image: imageUrl,
         images: allImages,
-        price: parseFloat(formData.price),
-        original_price: formData.original_price ? parseFloat(formData.original_price) : undefined,
         purity: formData.purity,
-        gross_weight_grams: formData.gross_weight_grams ? parseFloat(formData.gross_weight_grams) : undefined,
-        net_weight_grams: formData.net_weight_grams ? parseFloat(formData.net_weight_grams) : undefined,
         in_stock: formData.in_stock,
         badge: formData.badge || undefined,
         tags: formData.tags.split(',').map(t => t.trim()).filter(t => t),
@@ -138,7 +126,7 @@ export default function ProductForm() {
   if (loading && isEdit) {
     return (
       <div className="text-center py-12">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600 mx-auto"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto"></div>
         <p className="mt-4 text-gray-600">Loading product...</p>
       </div>
     );
@@ -174,39 +162,9 @@ export default function ProductForm() {
                 value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 placeholder="e.g., Heritage Thushi Necklace"
               />
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Current Price (₹) *
-                </label>
-                <input
-                  type="number"
-                  step="0.01"
-                  value={formData.price}
-                  onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-                  required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                  placeholder="96700"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Original Price (₹)
-                </label>
-                <input
-                  type="number"
-                  step="0.01"
-                  value={formData.original_price}
-                  onChange={(e) => setFormData({ ...formData, original_price: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                  placeholder="98290"
-                />
-              </div>
             </div>
 
             <div>
@@ -216,7 +174,7 @@ export default function ProductForm() {
               <select
                 value={formData.purity}
                 onChange={(e) => setFormData({ ...formData, purity: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
               >
                 <option value="22K">22K</option>
                 <option value="24K">24K</option>
@@ -224,35 +182,6 @@ export default function ProductForm() {
                 <option value="Silver">Silver</option>
                 <option value="Platinum">Platinum</option>
               </select>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Gross Weight (grams)
-                </label>
-                <input
-                  type="number"
-                  step="0.01"
-                  value={formData.gross_weight_grams}
-                  onChange={(e) => setFormData({ ...formData, gross_weight_grams: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                  placeholder="15.2"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Net Weight (grams)
-                </label>
-                <input
-                  type="number"
-                  step="0.01"
-                  value={formData.net_weight_grams}
-                  onChange={(e) => setFormData({ ...formData, net_weight_grams: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                  placeholder="14.7"
-                />
-              </div>
             </div>
 
             <div>
@@ -263,7 +192,7 @@ export default function ProductForm() {
                 type="text"
                 value={formData.tags}
                 onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 placeholder="necklace, gold, bridal"
               />
               <p className="mt-1 text-sm text-gray-500">Separate tags with commas</p>
@@ -277,7 +206,7 @@ export default function ProductForm() {
                 type="text"
                 value={formData.badge}
                 onChange={(e) => setFormData({ ...formData, badge: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 placeholder="New, Sale, Limited"
               />
             </div>
@@ -288,7 +217,7 @@ export default function ProductForm() {
                 id="in_stock"
                 checked={formData.in_stock}
                 onChange={(e) => setFormData({ ...formData, in_stock: e.target.checked })}
-                className="h-4 w-4 text-amber-600 focus:ring-amber-500 border-gray-300 rounded"
+                className="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300 rounded"
               />
               <label htmlFor="in_stock" className="ml-2 block text-sm text-gray-700">
                 Product is in stock
@@ -301,7 +230,7 @@ export default function ProductForm() {
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Main Product Image *
               </label>
-              <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center hover:border-amber-500 transition-colors">
+              <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center hover:border-red-500 transition-colors">
                 {mainImagePreview ? (
                   <div className="relative">
                     <img
@@ -335,7 +264,7 @@ export default function ProductForm() {
                 />
                 <label
                   htmlFor="main-image-upload"
-                  className="mt-4 inline-block px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg cursor-pointer transition-colors"
+                  className="mt-4 inline-block px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg cursor-pointer transition-colors"
                 >
                   Choose Image
                 </label>
@@ -346,7 +275,7 @@ export default function ProductForm() {
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Additional Images
               </label>
-              <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 hover:border-amber-500 transition-colors">
+              <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 hover:border-red-500 transition-colors">
                 <div className="grid grid-cols-2 gap-2 mb-4">
                   {existingImages.map((img, index) => (
                     <div key={index} className="relative">
@@ -408,7 +337,7 @@ export default function ProductForm() {
           <button
             type="submit"
             disabled={loading || uploading}
-            className="flex items-center space-x-2 px-6 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center space-x-2 px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <FiSave />
             <span>{loading ? (uploading ? 'Uploading...' : 'Saving...') : (isEdit ? 'Update Product' : 'Add Product')}</span>

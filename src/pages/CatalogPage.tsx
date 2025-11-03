@@ -1,8 +1,9 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
 import SectionTitle from '../components/SectionTitle';
 import ProductCard from '../components/ProductCard';
 import { useProducts } from '../hooks/useProducts';
 import useDocumentTitle from '../lib/useDocumentTitle';
+import { trackSearch } from '../lib/analytics-database';
 
 export default function CatalogPage() {
   useDocumentTitle('Catalog');
@@ -11,6 +12,7 @@ export default function CatalogPage() {
   const [purity, setPurity] = useState<'all'|'22K'|'24K'|'18K'>('all');
   const [inStockOnly, setInStockOnly] = useState(false);
   const [sort, setSort] = useState<'popular'|'new'>('popular');
+  const searchTimeoutRef = useRef<NodeJS.Timeout>();
 
   const products = useMemo(() => {
     let list = all;
@@ -23,6 +25,30 @@ export default function CatalogPage() {
     // 'popular' fallback keeps original order
     return list;
   }, [all, query, purity, inStockOnly, sort]);
+
+  // Track search queries with debounce
+  useEffect(() => {
+    const q = query.trim();
+    if (!q || q.length < 2) return;
+
+    // Clear previous timeout
+    if (searchTimeoutRef.current) {
+      clearTimeout(searchTimeoutRef.current);
+    }
+
+    // Set new timeout to track search after user stops typing
+    searchTimeoutRef.current = setTimeout(() => {
+      trackSearch(q, products.length).catch(err => 
+        console.error('Failed to track search:', err)
+      );
+    }, 1000); // Wait 1 second after user stops typing
+
+    return () => {
+      if (searchTimeoutRef.current) {
+        clearTimeout(searchTimeoutRef.current);
+      }
+    };
+  }, [query, products.length]);
 
   return (
     <section className="section-padding">
