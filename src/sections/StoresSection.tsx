@@ -19,7 +19,7 @@ const stores: Store[] = [
     name: 'Jalgaon Branch',
     address: '169, Johari Bazar, BALAJI PETH, Jalgaon, Maharashtra 425001',
     phone: '0257-2226681',
-    mapUrl: 'https://www.google.com/maps/place/RL+JEWELS+(RAJMAL+LAKHICHAND)/@21.0077241,75.5600329,17z/data=!3m1!4b1!4m6!3m5!1s0x3bd90fa315b838d5:0x6e6ee75e2e6c18c1!8m2!3d21.0077241!4d75.5626078!16s%2Fg%2F1tg1_h15',
+    mapUrl: 'https://www.google.com/maps/dir/?api=1&destination=169+Johari+Bazar+BALAJI+PETH+Jalgaon+Maharashtra+425001',
     latitude: 21.0077241,
     longitude: 75.5626078
   },
@@ -28,7 +28,7 @@ const stores: Store[] = [
     name: 'Nashik Branch',
     address: 'City Plaza, Old Agra Rd, Opp Kalika Mandir, Nashik 422001',
     phone: '0253-2509991',
-    mapUrl: 'https://www.google.com/maps/place/RL+Jewels+Nashik/@19.9975,73.7898,17z',
+    mapUrl: 'https://www.google.com/maps/dir/?api=1&destination=City+Plaza+Old+Agra+Rd+Nashik+422001',
     latitude: 19.9975,
     longitude: 73.7898
   },
@@ -37,7 +37,7 @@ const stores: Store[] = [
     name: 'Thane Branch',
     address: 'Opp Gaodevi, Shivaji Path Cross Rd, Naupada, Thane West 400602',
     phone: '022-25416121',
-    mapUrl: 'https://www.google.com/maps/place/RL+Jewels+Thane/@19.1868,72.9669,17z',
+    mapUrl: 'https://www.google.com/maps/dir/?api=1&destination=Shivaji+Path+Cross+Rd+Naupada+Thane+West+400602',
     latitude: 19.1868,
     longitude: 72.9669
   }

@@ -33,11 +33,20 @@ export const NewsletterSignup = () => {
             placeholder="Enter your email"
             value={email}
             onChange={e=>setEmail(e.target.value)}
-            className="flex-1 min-w-[220px] bg-white/5 border border-white/10 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gold"
+            className="flex-1 min-w-[220px] bg-white border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
           />
-          <Button type="submit">Subscribe</Button>
+          <button 
+            type="submit"
+            className="px-8 py-3 bg-brand-red text-white rounded-lg hover:bg-brand-red/90 transition-colors font-semibold shadow-md hover:shadow-lg whitespace-nowrap"
+          >
+            Subscribe
+          </button>
         </form>
-        {submitted && <p className="mt-4 text-xs text-primary-gold">Thank you! You are subscribed.</p>}
+        {submitted && (
+          <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded-lg">
+            <p className="text-sm text-green-800 font-semibold">✓ Thank you! You are now subscribed to our newsletter.</p>
+          </div>
+        )}
       </div>
     </motion.section>
   );

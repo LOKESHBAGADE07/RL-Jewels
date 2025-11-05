@@ -12,6 +12,7 @@ import AboutPage from '@/pages/AboutPage';
 import HeritagePage from '@/pages/HeritagePage';
 import FAQPage from '@/pages/FAQPage';
 import SiteLayout from '@/components/SiteLayout';
+import ScrollToTop from '@/components/ScrollToTop';
 import AdminLogin from '@/pages/admin/AdminLogin';
 import AdminLayout from '@/components/AdminLayout';
 import AdminDashboard from '@/pages/admin/AdminDashboard';
@@ -34,6 +35,7 @@ import ProtectedRoute from '@/components/ProtectedRoute';
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         {/* PUBLIC ROUTES - Customer Facing Website */}
         <Route element={<SiteLayout />}>

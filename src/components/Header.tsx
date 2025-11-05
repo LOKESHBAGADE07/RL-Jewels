@@ -52,9 +52,6 @@ export const Header = () => {
           to="/" 
           className="flex items-center gap-2 cursor-pointer flex-shrink-0" 
           aria-label="RL Jewels Home"
-          onClick={() => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
         >
           <img src={logo} alt="RL Jewels" className="h-11 w-auto" loading="lazy" />
         </RouterLink>

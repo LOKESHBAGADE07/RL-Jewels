@@ -21,7 +21,7 @@ export const Navigation = ({ onClick }: { onClick?: () => void }) => {
   const ids = useMemo(() => linkIds, []);
   const active = useActiveSection(ids);
   
-  // Handle hash navigation after page loads
+  // Handle hash navigation after page loads (only for forward navigation, not back button)
   useEffect(() => {
     const hash = location.hash.replace('#', '');
     if (hash && isHomePage) {
@@ -34,11 +34,9 @@ export const Navigation = ({ onClick }: { onClick?: () => void }) => {
           offset: -90
         });
       }, 100);
-    } else if (isHomePage && !hash) {
-      // If on homepage without hash, scroll to top
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  }, [location.hash, location.pathname, isHomePage]);
+    // Removed auto-scroll to top - let browser handle scroll restoration
+  }, [location.hash, isHomePage]);
   
   const links = [
     { to: 'home', label: t.nav_home, route: '/' },
@@ -60,8 +58,8 @@ export const Navigation = ({ onClick }: { onClick?: () => void }) => {
       const section = l.route.split('#')[1];
       navigate(`/#${section}`);
     } else if (l.route === '/' && isHomePage) {
-      // Already on home, just scroll to top
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Already on home, just scroll to top instantly
+      window.scrollTo(0, 0);
     }
   };
   
@@ -79,11 +77,7 @@ export const Navigation = ({ onClick }: { onClick?: () => void }) => {
                 to={l.route}
                 role="menuitem"
                 className={`group cursor-pointer relative font-medium text-[15px] tracking-wide transition-colors whitespace-nowrap ${isActive ? 'text-ink-900' : 'text-ink-600 hover:text-brand-red'}`}
-                onClick={() => {
-                  if (onClick) onClick();
-                  // Scroll to top when navigating to a new page
-                  setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
-                }}
+                onClick={() => handleClick(l)}
               >
                 {l.label}
                 <span className={`absolute left-0 -bottom-1 h-0.5 bg-brand-red transition-all ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
