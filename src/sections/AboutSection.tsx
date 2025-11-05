@@ -39,7 +39,7 @@ export const AboutSection = () => {
         </div>
 
         {/* Trust Badges */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 max-w-4xl mx-auto gap-8 sm:gap-4">
+        <div className="mt-12 flex flex-wrap justify-center items-center max-w-3xl mx-auto gap-6 px-4">
           {badges.map((b,i) => (
             <motion.div
               key={b.text}
@@ -47,6 +47,7 @@ export const AboutSection = () => {
               whileInView={{ opacity:1, y:0 }}
               viewport={{ once:true }}
               transition={{ delay: i * 0.15 }}
+              className="flex-shrink-0"
             >
               <TrustBadge icon={b.icon} text={b.text} />
             </motion.div>

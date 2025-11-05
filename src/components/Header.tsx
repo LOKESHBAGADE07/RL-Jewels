@@ -71,9 +71,12 @@ export const Header = () => {
           </a>
         </div>
         
-        <button className="lg:hidden text-2xl text-brand-red p-2" aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen(o=>!o)} aria-label="Menu">
-          {open ? <FiX /> : <FiMenu />}
-        </button>
+        <div className="lg:hidden flex items-center gap-3">
+          <LanguageSwitcher />
+          <button className="text-2xl text-brand-red p-2" aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen(o=>!o)} aria-label="Menu">
+            {open ? <FiX /> : <FiMenu />}
+          </button>
+        </div>
       </div>
       {open && (
   <div id="mobile-nav" className="lg:hidden absolute inset-x-0 top-20 bg-white/95 backdrop-blur-md p-8 space-y-6 border-b border-surface-300 shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto" role="dialog" aria-modal="true" aria-label="Mobile navigation menu">
@@ -100,7 +103,6 @@ export const Header = () => {
             ))}
           </nav>
           <div className="flex items-center gap-6 text-2xl pt-4">
-            <LanguageSwitcher />
             <button onClick={() => { setSearchOpen(true); setOpen(false); }} aria-label="Search"><FiSearch /></button>
             <a href="https://wa.me/919403891854?text=Hi, I'm interested in RL Jewels collection" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><FaWhatsapp /></a>
           </div>

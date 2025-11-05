@@ -65,28 +65,28 @@ export const StoresSection = () => {
               className="group"
             >
               {/* Mobile Layout: Horizontal Rectangle with 70% info + 30% map */}
-              <div className="md:hidden bg-gradient-to-br from-brand-red to-brand-red-dark rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-brand-red/30">
-                <div className="flex h-48">
+              <div className="md:hidden bg-gradient-to-br from-brand-red to-brand-red-dark rounded-lg overflow-hidden shadow-lg transition-all duration-300 border border-brand-red/30">
+                <div className="flex h-32">
                   {/* Left side: Store Info (70%) */}
-                  <div className="w-[70%] p-4 flex flex-col">
-                    <h3 className="text-lg font-serif font-bold text-white mb-2 tracking-wide">
+                  <div className="w-[70%] p-3 flex flex-col">
+                    <h3 className="text-sm font-serif font-bold text-white mb-1.5 tracking-wide">
                       {store.name}
                     </h3>
                     
                     {/* Address */}
-                    <div className="flex items-start gap-2 mb-2">
-                      <FaMapMarkerAlt className="text-white/90 text-sm mt-0.5 flex-shrink-0" />
-                      <p className="text-white text-xs leading-snug line-clamp-3">
+                    <div className="flex items-start gap-1.5 mb-1.5">
+                      <FaMapMarkerAlt className="text-white/90 text-xs mt-0.5 flex-shrink-0" />
+                      <p className="text-white text-[10px] leading-tight line-clamp-2">
                         {store.address}
                       </p>
                     </div>
 
                     {/* Phone */}
-                    <div className="flex items-center gap-2 mb-3">
-                      <FaPhone className="text-white/90 text-xs flex-shrink-0" />
+                    <div className="flex items-center gap-1.5 mb-2">
+                      <FaPhone className="text-white/90 text-[10px] flex-shrink-0" />
                       <a 
                         href={`tel:${store.phone.replace(/[\s-]/g, '')}`}
-                        className="text-white text-xs hover:text-brand-gold transition-colors font-medium"
+                        className="text-white text-[10px] hover:text-brand-gold transition-colors font-medium"
                       >
                         {store.phone}
                       </a>
@@ -97,9 +97,9 @@ export const StoresSection = () => {
                       href={store.mapUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-auto bg-white text-brand-red px-3 py-2 rounded-lg font-semibold text-xs text-center hover:bg-brand-gold hover:text-white transition-all duration-300 flex items-center justify-center gap-1.5 shadow-md"
+                      className="mt-auto bg-white text-brand-red px-2 py-1.5 rounded-md font-semibold text-[10px] text-center hover:bg-brand-gold hover:text-white transition-all duration-300 flex items-center justify-center gap-1 shadow-sm"
                     >
-                      <FaMapPin className="text-sm" />
+                      <FaMapPin className="text-xs" />
                       Directions
                     </a>
                   </div>
