@@ -11,7 +11,32 @@ export const BlogTeasersSection: React.FC = () => (
   <section id="blog" className="section-padding bg-gradient-to-b from-primary-cream/50 to-white">
     <div className="max-content">
       <SectionTitle title="From Our Journal" subtitle="Insights" />
-      <div className="grid md:grid-cols-3 gap-8">
+      
+      {/* Mobile: Horizontal Scroll */}
+      <div className="md:hidden -mx-4 px-4">
+        <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 scroll-smooth">
+          {posts.map(p => (
+            <article key={p.id} className="group flex-shrink-0 w-[85%] max-w-[340px] rounded-xl overflow-hidden border border-accent-gold/30 bg-white/70 backdrop-blur shadow-sm hover:shadow-lg transition snap-start">
+              <div className="aspect-video w-full">
+                <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+              </div>
+              <div className="p-5 flex flex-col">
+                <p className="text-[11px] uppercase tracking-widest text-brand-red mb-2">{p.date}</p>
+                <h3 className="font-semibold font-serif text-lg mb-2 group-hover:text-accent-gold transition-colors">{p.title}</h3>
+                <p className="text-sm text-neutral-600 mb-4 line-clamp-3">{p.excerpt}</p>
+                <button className="mt-auto text-xs font-semibold tracking-wide text-brand-red hover:underline focus:outline-none focus-visible:ring focus-visible:ring-brand-red/40 self-start">Read More</button>
+              </div>
+            </article>
+          ))}
+        </div>
+        {/* Scroll Indicator */}
+        <p className="text-center text-xs text-neutral-500 mt-2">
+          ← Swipe to see more →
+        </p>
+      </div>
+
+      {/* Desktop/Tablet: Grid */}
+      <div className="hidden md:grid md:grid-cols-3 gap-8">
         {posts.map(p => (
           <article key={p.id} className="group rounded-xl overflow-hidden border border-accent-gold/30 bg-white/70 backdrop-blur shadow-sm hover:shadow-lg transition">
             <div className="aspect-video w-full">

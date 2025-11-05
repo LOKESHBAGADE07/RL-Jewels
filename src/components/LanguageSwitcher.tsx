@@ -23,7 +23,10 @@ export default function LanguageSwitcher() {
         aria-label="Change language"
       >
         <FiGlobe className="text-lg" />
-        <span className="text-sm font-medium">{currentLanguage.flag}</span>
+        {/* Show flag only on mobile, hide on desktop */}
+        <span className="text-sm font-medium lg:hidden">{currentLanguage.flag}</span>
+        {/* Show text "English" on desktop */}
+        <span className="text-sm font-medium hidden lg:inline">{currentLanguage.name}</span>
       </button>
 
       {isOpen && (
@@ -32,7 +35,8 @@ export default function LanguageSwitcher() {
             className="fixed inset-0 z-10"
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-neutral-200 z-20">
+          {/* Mobile: opens upward (bottom-full), Desktop: opens downward to the left (right-0) */}
+          <div className="absolute left-0 bottom-full mb-2 lg:bottom-auto lg:top-full lg:right-0 lg:left-auto lg:mt-2 lg:mb-0 w-48 bg-white rounded-lg shadow-lg border border-neutral-200 z-20">
             {languages.map((lang) => (
               <button
                 key={lang.code}

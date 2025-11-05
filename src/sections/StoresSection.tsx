@@ -64,7 +64,65 @@ export const StoresSection = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group"
             >
-              <div className="bg-gradient-to-br from-brand-red to-brand-red-dark rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 h-full flex flex-col border border-brand-red/30">
+              {/* Mobile Layout: Horizontal Rectangle with 70% info + 30% map */}
+              <div className="md:hidden bg-gradient-to-br from-brand-red to-brand-red-dark rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-brand-red/30">
+                <div className="flex h-48">
+                  {/* Left side: Store Info (70%) */}
+                  <div className="w-[70%] p-4 flex flex-col">
+                    <h3 className="text-lg font-serif font-bold text-white mb-2 tracking-wide">
+                      {store.name}
+                    </h3>
+                    
+                    {/* Address */}
+                    <div className="flex items-start gap-2 mb-2">
+                      <FaMapMarkerAlt className="text-white/90 text-sm mt-0.5 flex-shrink-0" />
+                      <p className="text-white text-xs leading-snug line-clamp-3">
+                        {store.address}
+                      </p>
+                    </div>
+
+                    {/* Phone */}
+                    <div className="flex items-center gap-2 mb-3">
+                      <FaPhone className="text-white/90 text-xs flex-shrink-0" />
+                      <a 
+                        href={`tel:${store.phone.replace(/[\s-]/g, '')}`}
+                        className="text-white text-xs hover:text-brand-gold transition-colors font-medium"
+                      >
+                        {store.phone}
+                      </a>
+                    </div>
+
+                    {/* Get Directions Button */}
+                    <a
+                      href={store.mapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-auto bg-white text-brand-red px-3 py-2 rounded-lg font-semibold text-xs text-center hover:bg-brand-gold hover:text-white transition-all duration-300 flex items-center justify-center gap-1.5 shadow-md"
+                    >
+                      <FaMapPin className="text-sm" />
+                      Directions
+                    </a>
+                  </div>
+
+                  {/* Right side: Map (30%) */}
+                  <div className="w-[30%] relative bg-gray-100">
+                    <iframe
+                      src={`https://maps.google.com/maps?q=${store.latitude},${store.longitude}&hl=en&z=15&output=embed`}
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      className="w-full h-full"
+                      title={`${store.name} Location`}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Desktop/Tablet Layout: Original Vertical Card */}
+              <div className="hidden md:block bg-gradient-to-br from-brand-red to-brand-red-dark rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 h-full flex-col border border-brand-red/30">
                 {/* Map Preview - With Business Info Card */}
                 <div className="relative h-64 overflow-hidden bg-gray-100">
                   <iframe
