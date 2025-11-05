@@ -23,10 +23,6 @@ export default function LanguageSwitcher() {
         aria-label="Change language"
       >
         <FiGlobe className="text-lg" />
-        {/* Show flag only on mobile, hide on desktop */}
-        <span className="text-sm font-medium lg:hidden">{currentLanguage.flag}</span>
-        {/* Show text "English" on desktop */}
-        <span className="text-sm font-medium hidden lg:inline">{currentLanguage.name}</span>
       </button>
 
       {isOpen && (

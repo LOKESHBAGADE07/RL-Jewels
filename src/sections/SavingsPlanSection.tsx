@@ -6,7 +6,7 @@ export const SavingsPlanSection = () => (
   <section id="savings" className="section-padding">
     <div className="max-content grid md:grid-cols-2 gap-12 items-center">
       <div>
-        <img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?w=1200&h=800&fit=crop&q=85" alt="Savings Plan" className="rounded-lg shadow-glow object-cover w-full h-80" />
+        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=1200&h=800&fit=crop&q=85" alt="Savings Plan" className="rounded-lg shadow-glow object-cover w-full h-48 md:h-80" />
       </div>
       <div>
         <SectionTitle subtitle="Plan" title="Save Now, Shine Forever!" align="left" />

@@ -22,7 +22,7 @@ export const AboutSection = () => {
           <p className="text-center text-text-secondary leading-relaxed text-sm sm:text-base md:text-lg mb-6" style={{ textAlign: 'justify', textJustify: 'inter-word' }}>
             Since 1854, Rajmal Lakhichand Jewellers (RL Jewels) has been a name synonymous with purity, trust, and craftsmanship. Born in Jalgaon and now proudly serving customers across Nashik and Thane, we have been pioneers of India's jewellery industry for over 170 years.
           </p>
-          <p className="text-center text-text-secondary leading-relaxed text-sm sm:text-base md:text-lg mb-8" style={{ textAlign: 'justify', textJustify: 'inter-word' }}>
+          <p className="text-center text-text-secondary leading-relaxed text-sm sm:text-base md:text-lg mb-6" style={{ textAlign: 'justify', textJustify: 'inter-word' }}>
             Long before hallmarking became an official standard, RL Jewels was already ensuring purity through its own hallmark practices, setting the foundation for the trust we continue to uphold today. Our visionary Gold Deposit Scheme was so impactful that it was appreciated by then Finance Minister, Dr. Manmohan Singh, who later introduced a similar initiative as a national gold savings scheme.
           </p>
           
@@ -39,7 +39,7 @@ export const AboutSection = () => {
         </div>
 
         {/* Trust Badges */}
-        <div className="mt-12 flex flex-wrap justify-center items-center max-w-3xl mx-auto gap-6 px-4">
+        <div className="mt-8 flex flex-wrap justify-center items-center max-w-3xl mx-auto gap-6 px-4">
           {badges.map((b,i) => (
             <motion.div
               key={b.text}

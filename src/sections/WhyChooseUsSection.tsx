@@ -16,7 +16,7 @@ export const WhyChooseUsSection = () => (
     <div className="max-content">
       <SectionTitle subtitle="Why Choose" title="Why Choose RL Jewels?" />
       <div className="mt-12 overflow-x-auto scrollbar-hide">
-        <div className="flex flex-nowrap items-stretch justify-start gap-8 px-4 pb-2" role="list">
+        <div className="flex flex-nowrap items-stretch justify-start md:justify-center gap-8 px-4 pb-2" role="list">
           {points.map((p, i) => (
             <motion.div
               role="listitem"

@@ -21,7 +21,7 @@ export const LoyaltyProgramSection = () => (
         <Button variant="secondary">Check Your Points</Button>
       </div>
       <div className="order-1 md:order-2">
-        <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=1200&h=800&fit=crop&q=85" alt="Loyalty" className="rounded-lg shadow-glow object-cover w-full h-80" />
+        <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=1200&h=800&fit=crop&q=85" alt="Loyalty" className="rounded-lg shadow-glow object-cover w-full h-48 md:h-80" />
       </div>
     </div>
   </section>
