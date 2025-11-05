@@ -299,7 +299,7 @@ Check:
 Action: Click any "Enquire" button
 Check:
 ✓ Opens WhatsApp
-✓ Shows number: 918767204972
+✓ Shows number: 919403891854
 ✓ Pre-filled message appears
 ```
 
@@ -433,7 +433,7 @@ If still happening:
 │                                          │
 │  TESTING:                                │
 │  ✓ Homepage loads                        │
-│  ✓ WhatsApp links work (918767204972)   │
+│  ✓ WhatsApp links work (919403891854)   │
 │  ✓ Admin login accessible                │
 │  ✓ Mobile responsive                     │
 │                                          │

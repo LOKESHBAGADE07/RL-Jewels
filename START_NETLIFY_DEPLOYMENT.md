@@ -222,7 +222,7 @@ DEPLOYMENT:
 POST-DEPLOYMENT:
 [ ] Supabase redirect URLs updated
 [ ] Homepage tested
-[ ] WhatsApp links tested (918767204972)
+[ ] WhatsApp links tested (919403891854)
 [ ] Admin panel tested
 [ ] Mobile responsiveness tested
 [ ] Custom domain added (optional)

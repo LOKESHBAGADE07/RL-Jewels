@@ -8,10 +8,10 @@
 
 ### **1. Add Second WhatsApp Number** ✅
 
-**Requirement:** "add this whatsapp number with existed one 87672049722"
+**Requirement:** "add this whatsapp number with existed one 94038918542"
 
 **Implementation:**
-- ✅ Added WhatsApp number `8767204972` (formatted as 918767204972 for wa.me links)
+- ✅ Added WhatsApp number `9403891854` (formatted as 919403891854 for wa.me links)
 - ✅ Updated `src/components/Header.tsx` (desktop view)
 - ✅ Updated `src/components/Header.tsx` (mobile menu)
 - ✅ Both WhatsApp icons appear side by side
@@ -316,7 +316,7 @@ After database setup, you'll have:
 ## 📞 Contact Numbers
 
 **WhatsApp 1:** 919999999999 (Original)
-**WhatsApp 2:** 918767204972 (New)
+**WhatsApp 2:** 919403891854 (New)
 
 Both appear in:
 - Desktop header (top-right)

@@ -3,6 +3,7 @@ export type Language = 'en' | 'hi' | 'mr';
 export interface Translation {
   // Navigation
   nav_home: string;
+  nav_about: string;
   nav_collections: string;
   nav_occasions: string;
   nav_savings: string;
@@ -73,6 +74,7 @@ export interface Translation {
   about_title: string;
   about_subtitle: string;
   about_description: string;
+  about_more_btn: string;
   testimonials_title: string;
   testimonials_subtitle: string;
   view_all_reviews: string;
@@ -113,12 +115,17 @@ export interface Translation {
   explore: string;
   products: string;
   items: string;
+  
+  // Stores Section
+  stores_title: string;
+  stores_note: string;
 }
 
 export const translations: Record<Language, Translation> = {
   en: {
     // Navigation
     nav_home: 'Home',
+    nav_about: 'About Us',
     nav_collections: 'Collections',
     nav_occasions: 'Occasions',
     nav_savings: 'Savings Plan',
@@ -188,7 +195,8 @@ export const translations: Record<Language, Translation> = {
     // Sections
     about_title: 'About RL Jewels',
     about_subtitle: 'Heritage & Trust',
-    about_description: 'Serving Jalgaon with purity, transparency and craftsmanship. Our legacy blends tradition and modern design to bring you jewelry that reflects trust and elegance.',
+    about_description: 'Since 1854, Rajmal Lakhichand Jewellers (RL Jewels) has been a name synonymous with purity, trust, and craftsmanship. Born in Jalgaon and now proudly serving customers across Nashik and Thane, we have been pioneers of India\'s jewellery industry for over 170 years.\n\nLong before hallmarking became an official standard, RL Jewels was already ensuring purity through its own hallmark practices, setting the foundation for the trust we continue to uphold today. Our visionary Gold Deposit Scheme was so impactful that it was appreciated by then Finance Minister, Dr. Manmohan Singh, who later introduced a similar initiative as a national gold savings scheme.\n\nWith the same spirit of innovation, we now bring you RL Jewels Digital Gold – a modern way to buy, sell, and save real 22K gold and silver online, safely and conveniently. Every purchase is 100% pure, insured, and stored securely, with the option to redeem your holdings for physical jewellery or coins at any time.\n\nAt our stores in Jalgaon, Nashik, and Thane, we continue to offer a curated selection of gold, silver, diamond jewellery, and certified gemstones, crafted with the heritage of five generations and the artistry of today\'s finest designers.\n\nAt RL Jewels, we blend tradition with technology – preserving our legacy of purity while embracing the digital future of gold.\n\nRL Jewels Digital Gold – A Legacy of Purity. A Future of Trust.',
+    about_more_btn: 'More About Us',
     testimonials_title: 'What Our Customers Say',
     testimonials_subtitle: 'Real experiences from happy customers',
     view_all_reviews: 'View All Reviews',
@@ -229,11 +237,16 @@ export const translations: Record<Language, Translation> = {
     explore: 'Explore',
     products: 'products',
     items: 'items',
+    
+    // Stores Section
+    stores_title: 'Our Stores',
+    stores_note: 'Visit any of our three branches to explore our exclusive collection of gold, diamond, and bridal jewelry. Our expert staff is ready to assist you in finding the perfect piece.',
   },
   
   hi: {
     // Navigation
     nav_home: 'होम',
+    nav_about: 'हमारे बारे में',
     nav_collections: 'संग्रह',
     nav_occasions: 'अवसर',
     nav_savings: 'बचत योजना',
@@ -304,6 +317,7 @@ export const translations: Record<Language, Translation> = {
     about_title: 'आरएल ज्वेल्स के बारे में',
     about_subtitle: 'विरासत और विश्वास',
     about_description: 'शुद्धता, पारदर्शिता और कारीगरी के साथ जलगांव की सेवा करना। हमारी विरासत परंपरा और आधुनिक डिजाइन को मिश्रित करती है ताकि आपको विश्वास और शान का आभूषण मिल सके।',
+    about_more_btn: 'हमारे बारे में और जानें',
     testimonials_title: 'हमारे ग्राहक क्या कहते हैं',
     testimonials_subtitle: 'खुश ग्राहकों के वास्तविक अनुभव',
     view_all_reviews: 'सभी समीक्षाएँ देखें',
@@ -344,11 +358,16 @@ export const translations: Record<Language, Translation> = {
     explore: 'खोजें',
     products: 'उत्पाद',
     items: 'वस्तुएं',
+    
+    // Stores Section
+    stores_title: 'हमारे स्टोर',
+    stores_note: 'सोना, हीरे और दुल्हन के आभूषणों के हमारे विशेष संग्रह को देखने के लिए हमारी तीन शाखाओं में से किसी एक पर जाएँ। हमारे विशेषज्ञ कर्मचारी आपको सही आभूषण खोजने में मदद करने के लिए तैयार हैं।',
   },
   
   mr: {
     // Navigation
     nav_home: 'मुख्यपृष्ठ',
+    nav_about: 'आमच्याबद्दल',
     nav_collections: 'संग्रह',
     nav_occasions: 'प्रसंग',
     nav_savings: 'बचत योजना',
@@ -419,6 +438,7 @@ export const translations: Record<Language, Translation> = {
     about_title: 'आरएल ज्वेल्स बद्दल',
     about_subtitle: 'वारसा आणि विश्वास',
     about_description: 'शुद्धता, पारदर्शकता आणि कारागिरी सह जळगाव ला सेवा देणे. आमचा वारसा परंपरा आणि आधुनिक डिझाइन एकत्र करतो जेणेकरून तुम्हाला विश्वास आणि सुंदरतेचे दागिने मिळतील.',
+    about_more_btn: 'आमच्याबद्दल अधिक जाणून घ्या',
     testimonials_title: 'आमचे ग्राहक काय म्हणतात',
     testimonials_subtitle: 'आनंदी ग्राहकांचे वास्तविक अनुभव',
     view_all_reviews: 'सर्व पुनरावलोकने पहा',
@@ -459,5 +479,9 @@ export const translations: Record<Language, Translation> = {
     explore: 'अन्वेषण करा',
     products: 'उत्पादने',
     items: 'वस्तू',
+    
+    // Stores Section
+    stores_title: 'आमची दुकाने',
+    stores_note: 'सोने, हिरे आणि वधूच्या दागिन्यांच्या आमच्या विशेष संग्रहाचे अन्वेषण करण्यासाठी आमच्या तिन्ही शाखांना भेट द्या। योग्य दागिना शोधण्यात आपल्याला मदत करण्यासाठी आमचे तज्ञ कर्मचारी तयार आहेत।',
   },
 };

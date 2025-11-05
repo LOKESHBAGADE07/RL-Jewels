@@ -24,7 +24,7 @@
 **Changes:**
 - ✅ Using OptimizedImage component
 - ✅ Lazy loading with intersection observer
-- ✅ Fixed WhatsApp number (918767204972)
+- ✅ Fixed WhatsApp number (919403891854)
 - ✅ Smooth hover animations
 - ✅ Better performance
 
@@ -301,7 +301,7 @@ Look for "Layout Shifts" and "FPS"
 - ✅ Great on all devices
 
 **Bonus:**
-- ✅ Fixed WhatsApp number (918767204972)
+- ✅ Fixed WhatsApp number (919403891854)
 - ✅ Better SEO
 - ✅ Lower bandwidth usage
 - ✅ Higher user satisfaction

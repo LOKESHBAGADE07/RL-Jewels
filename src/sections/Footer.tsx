@@ -29,7 +29,7 @@ export const Footer = () => {
             <li><RouterLink to="/terms" className="hover:text-brand-red transition">{t.terms_conditions}</RouterLink></li>
             <li><RouterLink to="/privacy" className="hover:text-brand-red transition">{t.privacy_policy}</RouterLink></li>
             <li><RouterLink to="/faq" className="hover:text-brand-red transition">{t.faqs}</RouterLink></li>
-            <li><a href="tel:+918767204972" className="hover:text-brand-red transition">Contact: +91 87672 04972</a></li>
+            <li><a href="tel:+919403891854" className="hover:text-brand-red transition">Contact: +91 94038 91854</a></li>
           </ul>
         </div>
 
@@ -42,9 +42,9 @@ export const Footer = () => {
           </div>
           <h4 className="font-serif text-xl leading-tight mb-3 tracking-wide">{t.footer_connect}</h4>
           <div className="flex gap-5 text-2xl" aria-label="Social Media Links">
-            <a href="https://instagram.com/rljewels" target="_blank" aria-label="Instagram" className="hover:text-brand-red transition" rel="noopener noreferrer"><FaInstagram /></a>
+            <a href="https://www.instagram.com/rljewels_official/?hl=en" target="_blank" aria-label="Instagram" className="hover:text-brand-red transition" rel="noopener noreferrer"><FaInstagram /></a>
             <a href="https://facebook.com/rljewels" target="_blank" aria-label="Facebook" className="hover:text-brand-red transition" rel="noopener noreferrer"><FaFacebook /></a>
-            <a href="https://wa.me/918767204972?text=Hi, I'm interested in RL Jewels" target="_blank" aria-label="WhatsApp" className="hover:text-brand-red transition" rel="noopener noreferrer"><FaWhatsapp /></a>
+            <a href="https://wa.me/919403891854?text=Hi, I'm interested in RL Jewels" target="_blank" aria-label="WhatsApp" className="hover:text-brand-red transition" rel="noopener noreferrer"><FaWhatsapp /></a>
           </div>
         </div>
 

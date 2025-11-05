@@ -17,13 +17,16 @@ export default function AdminLayout() {
   };
 
   const menuItems = [
-    { path: '/admin/dashboard', icon: FiPackage, label: 'Products' },
+    { path: '/admin/dashboard', icon: FiHome, label: 'Dashboard' },
+    { path: '/admin/banners', icon: FiMonitor, label: 'Hero Banners' },
     { path: '/admin/collections', icon: FiImage, label: 'Collections' },
-    { path: '/admin/hero-banners', icon: FiMonitor, label: 'Hero Banners' },
+    { path: '/admin/products', icon: FiPackage, label: 'Products' },
+    { path: '/admin/blog', icon: FiFileText, label: 'Blog Posts' },
+    { path: '/admin/testimonials', icon: FiStar, label: 'Testimonials' },
+    { path: '/admin/stores', icon: FiPlus, label: 'Stores' },
+    { path: '/admin/occasions', icon: FiPlus, label: 'Occasions' },
     { path: '/admin/inquiries', icon: FiMail, label: 'Inquiries' },
     { path: '/admin/analytics', icon: FiBarChart2, label: 'Analytics' },
-    { path: '/admin/testimonials', icon: FiStar, label: 'Testimonials' },
-    { path: '/admin/blog', icon: FiFileText, label: 'Blog' },
   ];
 
   return (

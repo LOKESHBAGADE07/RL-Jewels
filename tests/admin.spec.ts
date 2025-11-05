@@ -146,7 +146,7 @@ test.describe('Products Tests', () => {
         expect(href).not.toContain('99999');
         
         // Should have correct number
-        expect(href).toContain('918767204972');
+        expect(href).toContain('919403891854');
       }
     }
   });

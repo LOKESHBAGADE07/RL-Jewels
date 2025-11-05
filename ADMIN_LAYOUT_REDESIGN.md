@@ -9,7 +9,7 @@
 ### **1. Removed Sample WhatsApp Number** ✅
 
 **Removed:** 919999999999 (sample number)
-**Kept:** 918767204972 (real number)
+**Kept:** 919403891854 (real number)
 
 **Locations Updated:**
 - ✅ Desktop header (removed phone icon and sample WhatsApp)
@@ -249,7 +249,7 @@
 
 **WhatsApp Changes:**
 - ❌ Removed: 919999999999 (sample)
-- ✅ Kept: 918767204972 (real)
+- ✅ Kept: 919403891854 (real)
 
 **Admin Layout:**
 - ✅ Vertical left sidebar
@@ -267,7 +267,7 @@
 1. **WhatsApp:**
    - Refresh homepage
    - Check header → Should see only ONE WhatsApp icon
-   - Click it → Opens chat with 918767204972
+   - Click it → Opens chat with 919403891854
 
 2. **Admin Panel:**
    - Go to: http://localhost:5000/admin

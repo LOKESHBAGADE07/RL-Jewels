@@ -20,7 +20,7 @@ export const ProductCard = ({ product }: Props) => {
   
   const handleEnquiry = () => {
     const message = `Hi, I'm interested in ${product.title}. Can you provide more details?`;
-    window.open(`https://wa.me/918767204972?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/919403891854?text=${encodeURIComponent(message)}`, '_blank');
   };
   return (
     <motion.div

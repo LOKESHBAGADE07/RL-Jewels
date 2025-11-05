@@ -3,7 +3,7 @@
 ## ✅ What's New?
 
 ### 1. **Second WhatsApp Number Added** 
-- Number: **8767204972**
+- Number: **9403891854**
 - Location: Header (desktop & mobile)
 - Status: ✅ **Ready to use**
 
@@ -90,7 +90,7 @@
 | Number | Format | Location |
 |--------|--------|----------|
 | Primary | 919999999999 | Header (both) |
-| Secondary | 918767204972 | Header (both) |
+| Secondary | 919403891854 | Header (both) |
 
 ---
 

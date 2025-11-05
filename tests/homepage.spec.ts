@@ -30,7 +30,7 @@ test.describe('Homepage Tests', () => {
 
   test('should have correct WhatsApp link', async ({ page }) => {
     // Find WhatsApp links (may be in header, footer, or product cards)
-    const whatsappLinks = page.locator('a[href*="wa.me/918767204972"], a[href*="918767204972"]');
+    const whatsappLinks = page.locator('a[href*="wa.me/919403891854"], a[href*="919403891854"]');
     const count = await whatsappLinks.count();
     
     // Should have at least one WhatsApp link
@@ -38,7 +38,7 @@ test.describe('Homepage Tests', () => {
     
     // Check one of the links contains correct number
     const href = await whatsappLinks.first().getAttribute('href');
-    expect(href).toContain('918767204972');
+    expect(href).toContain('919403891854');
   });
 
   test('should display products section', async ({ page }) => {

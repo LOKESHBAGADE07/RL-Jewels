@@ -41,3 +41,6 @@ playwright/.cache/
 .replit
 replit.nix
 .config/
+
+# Local Netlify folder
+.netlify

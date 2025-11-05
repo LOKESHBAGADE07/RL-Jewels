@@ -55,10 +55,10 @@ Click **"New variable"** and add:
    **Value:** (your actual Supabase anon key - get from Supabase Dashboard → Settings → API)
 
 3. **Key:** `VITE_WHATSAPP_NUMBER` (optional - already in code)  
-   **Value:** `918767204972`
+   **Value:** `919403891854`
 
 4. **Key:** `VITE_PHONE_NUMBER` (optional - already in code)  
-   **Value:** `+918767204972`
+   **Value:** `+919403891854`
 
 ### Step 5: Deploy!
 
@@ -298,7 +298,7 @@ After deployment, test these:
 
 ### 2. WhatsApp Links
 - Click product enquiry buttons
-- ✅ Opens WhatsApp with correct number (918767204972)
+- ✅ Opens WhatsApp with correct number (919403891854)
 
 ### 3. Admin Panel
 - Visit: `https://your-site.netlify.app/admin`

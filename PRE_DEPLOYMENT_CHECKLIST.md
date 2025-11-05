@@ -40,7 +40,7 @@ Run through this checklist before deploying to production.
 - [ ] Navigation works (Home, Collections, About, Contact)
 - [ ] Hero banners display properly
 - [ ] Products load and display
-- [ ] WhatsApp enquiry buttons work (918767204972)
+- [ ] WhatsApp enquiry buttons work (919403891854)
 - [ ] Language switcher works
 - [ ] Admin login accessible (/admin)
 - [ ] Mobile responsive design works
@@ -81,7 +81,7 @@ Run through this checklist before deploying to production.
 
 - [ ] Contact info correct:
   - Phone: +91 87672 04972 ✅
-  - WhatsApp: 918767204972 ✅
+  - WhatsApp: 919403891854 ✅
   - Email: lbagade6@gmail.com ✅
 
 - [ ] Social media links updated (if applicable)

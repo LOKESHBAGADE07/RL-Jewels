@@ -79,7 +79,7 @@ VITE_SUPABASE_ANON_KEY=your_actual_anon_key
 - ✅ Hero Banners with video support
 - ✅ Dynamic carousel with custom duration (1-60s per banner)
 - ✅ Product catalog with collections
-- ✅ WhatsApp integration (918767204972)
+- ✅ WhatsApp integration (919403891854)
 - ✅ Admin panel with magic link auth
 - ✅ Multilingual support (EN/HI)
 - ✅ Blog system

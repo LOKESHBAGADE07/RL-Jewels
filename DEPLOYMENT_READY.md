@@ -7,7 +7,7 @@
 - ✅ Multi-browser testing (Chrome, Firefox, Safari, Mobile)
 - ✅ Performance validation
 - ✅ Mobile responsiveness verified
-- ✅ WhatsApp integration correct (918767204972)
+- ✅ WhatsApp integration correct (919403891854)
 
 ### **Features Implemented**
 - ✅ Hero Banners with video support
@@ -219,7 +219,7 @@ npx playwright test --config=playwright.config.prod.ts
 ### **3. Mobile Testing:**
 - Use Chrome DevTools mobile emulator
 - Test on actual devices
-- Check WhatsApp links work: `wa.me/918767204972`
+- Check WhatsApp links work: `wa.me/919403891854`
 
 ### **4. Performance Check:**
 - Run Lighthouse audit (Chrome DevTools)

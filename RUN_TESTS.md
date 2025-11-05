@@ -69,7 +69,7 @@ Opens HTML report with screenshots and videos of failures.
 ### ✅ Homepage Tests (13 tests)
 - Page loads successfully
 - Navigation menu works
-- WhatsApp link correct (918767204972)
+- WhatsApp link correct (919403891854)
 - Product section displays
 - Lazy loading functioning
 - Performance: Loads in under 3 seconds

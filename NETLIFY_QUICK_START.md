@@ -103,7 +103,7 @@ Visit these URLs and check:
 - Images load
 
 ✅ **WhatsApp:** Click any product enquiry button
-- Opens WhatsApp with 918767204972
+- Opens WhatsApp with 919403891854
 
 ✅ **Admin:** `https://[your-site].netlify.app/admin`
 - Login page loads
