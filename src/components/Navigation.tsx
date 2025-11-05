@@ -57,10 +57,8 @@ export const Navigation = ({ onClick }: { onClick?: () => void }) => {
     if (l.route.includes('#') && !isHomePage) {
       const section = l.route.split('#')[1];
       navigate(`/#${section}`);
-    } else if (l.route === '/' && isHomePage) {
-      // Already on home, just scroll to top instantly
-      window.scrollTo(0, 0);
     }
+    // Let ScrollToTop component handle all scroll behavior
   };
   
   return (
@@ -89,6 +87,25 @@ export const Navigation = ({ onClick }: { onClick?: () => void }) => {
         // For home page sections
         if (isHomePage) {
           // Already on home page, use ScrollLink for smooth scrolling
+          // Special case: Home link scrolls to top
+          if (l.to === 'home') {
+            return (
+              <li key={l.to} role="none">
+                <button
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    if (onClick) onClick();
+                  }}
+                  role="menuitem"
+                  className={`group cursor-pointer relative font-medium text-[15px] tracking-wide transition-colors whitespace-nowrap ${isActive ? 'text-ink-900' : 'text-ink-600 hover:text-brand-red'}`}
+                >
+                  {l.label}
+                  <span className={`absolute left-0 -bottom-1 h-0.5 bg-brand-red transition-all ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+                </button>
+              </li>
+            );
+          }
+          
           return (
             <li key={l.to} role="none">
               <ScrollLink

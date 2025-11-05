@@ -38,10 +38,6 @@ export const HeritageTimelineSection: React.FC = () => (
     <div className="max-content mt-12 text-center">
       <Link
         to="/heritage"
-        onClick={() => {
-          // Ensure the page scrolls to top on navigation
-          setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
-        }}
         className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-brand-red to-brand-red-dark text-white font-semibold rounded-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
       >
         See Our History
