@@ -40,10 +40,26 @@ export const ShopByOccasionSection: React.FC = () => {
                 </div>
                 <div className="p-4">
                   <h3 className="font-medium tracking-wide text-sm mb-1 group-hover:text-brand-red transition-colors">{occasion.title}</h3>
-                  <p className="text-xs text-neutral-600 line-clamp-2 mb-2">{occasion.description}</p>
-                  <span className="text-brand-red text-xs font-semibold tracking-wide group-hover:underline">{t.explore}</span>
+                  <p className="text-xs text-neutral-600 line-clamp-2 mb-3">{occasion.description}</p>
+                  <div className="flex gap-2 mt-3">
+                    <button className="flex-1 px-3 py-2 bg-brand-red text-white text-xs font-semibold rounded-lg hover:bg-brand-red/90 transition-colors">
+                      {t.learn_more}
+                    </button>
+                    <button 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const contactSection = document.getElementById('contact');
+                        if (contactSection) {
+                          contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }}
+                      className="flex-1 px-3 py-2 bg-brand-red text-white text-xs font-semibold rounded-lg hover:bg-brand-red/90 transition-colors"
+                    >
+                      Contact Us
+                    </button>
+                  </div>
                 </div>
-                <span className="absolute inset-0 ring-1 ring-inset ring-accent-gold/0 group-hover:ring-accent-gold/40 transition" />
+                <span className="absolute inset-0 ring-1 ring-inset ring-accent-gold/0 group-hover:ring-accent-gold/40 transition pointer-events-none" />
               </Link>
             ))}
           </div>
@@ -81,10 +97,26 @@ export const ShopByOccasionSection: React.FC = () => {
               </div>
               <div className="p-4">
                 <h3 className="font-medium tracking-wide text-sm mb-1 group-hover:text-brand-red transition-colors">{occasion.title}</h3>
-                <p className="text-xs text-neutral-600 line-clamp-2 mb-2">{occasion.description}</p>
-                <span className="text-brand-red text-xs font-semibold tracking-wide group-hover:underline">{t.explore}</span>
+                <p className="text-xs text-neutral-600 line-clamp-2 mb-3">{occasion.description}</p>
+                <div className="flex gap-2 mt-3">
+                  <button className="flex-1 px-3 py-2 bg-brand-red text-white text-xs font-semibold rounded-lg hover:bg-brand-red/90 transition-colors">
+                    {t.learn_more}
+                  </button>
+                  <button 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const contactSection = document.getElementById('contact');
+                      if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    }}
+                    className="flex-1 px-3 py-2 bg-brand-red text-white text-xs font-semibold rounded-lg hover:bg-brand-red/90 transition-colors"
+                  >
+                    Contact Us
+                  </button>
+                </div>
               </div>
-              <span className="absolute inset-0 ring-1 ring-inset ring-accent-gold/0 group-hover:ring-accent-gold/40 transition" />
+              <span className="absolute inset-0 ring-1 ring-inset ring-accent-gold/0 group-hover:ring-accent-gold/40 transition pointer-events-none" />
             </Link>
           ))}
         </div>

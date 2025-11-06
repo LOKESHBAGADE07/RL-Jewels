@@ -161,7 +161,7 @@ export const HeroSection = () => {
               <Button onClick={() => handleButtonClick(currentBanner.button_link)}>
                 {currentBanner.button_text}
               </Button>
-              <Button variant="secondary" onClick={() => scroller.scrollTo('contact', { smooth: true, offset: -80, duration: 600 })}>
+              <Button onClick={() => scroller.scrollTo('contact', { smooth: true, offset: -80, duration: 600 })}>
                 {t.hero_contact_btn || 'Contact Us'}
               </Button>
             </div>
