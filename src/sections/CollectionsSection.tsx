@@ -50,49 +50,7 @@ export const CollectionsSection = () => {
     <section id="collections" className="section-padding bg-white/5">
       <div className="max-content">
         <SectionTitle subtitle="Explore" title="Our Collections" />
-        {/* Mobile: Show only 4 items in 2x2 grid */}
-        <div className="grid gap-6 grid-cols-2 md:hidden mb-6">
-          {featuredCollections.slice(0, 4).map(collection => (
-            <Link 
-              key={collection.id} 
-              to={`/collection/${collection.id}`}
-              className="group block bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-accent-gold/20"
-            >
-              <div className="aspect-square w-full overflow-hidden bg-gradient-to-br from-accent-gold/20 to-accent-gold/10 flex items-center justify-center">
-                <img 
-                  src={collection.image_url || '/assets/products/necklace.svg'} 
-                  alt={collection.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
-                    const parent = (e.target as HTMLImageElement).parentElement;
-                    if (parent && !parent.querySelector('.fallback-text')) {
-                      const fallback = document.createElement('div');
-                      fallback.className = 'fallback-text text-center p-4';
-                      fallback.innerHTML = `<div class="text-3xl mb-2">💎</div><div class="font-semibold text-accent-gold">${collection.title}</div>`;
-                      parent.appendChild(fallback);
-                    }
-                  }}
-                />
-              </div>
-              <div className="p-3">
-                <h3 className="font-medium text-xs mb-1 group-hover:text-brand-red transition-colors line-clamp-1">
-                  {collection.title}
-                </h3>
-                <p className="text-[10px] text-ink-600 line-clamp-1 mb-1">
-                  {collection.description}
-                </p>
-                <span className="text-brand-red text-[10px] font-semibold group-hover:underline">
-                  Explore →
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        {/* Desktop: Show all in original layout */}
-        <div className="hidden md:grid gap-6 grid-cols-2 lg:grid-cols-4 mb-8">
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 mb-8">
           {featuredCollections.map(collection => (
             <Link 
               key={collection.id} 
@@ -130,18 +88,10 @@ export const CollectionsSection = () => {
             </Link>
           ))}
         </div>
-        
-        {/* View More Button - Show on mobile, hide on desktop */}
         <div className="text-center">
           <Link 
             to="/collections" 
-            className="md:hidden inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white rounded-lg hover:bg-brand-red-dark transition-colors font-semibold text-sm"
-          >
-            View More Collections
-          </Link>
-          <Link 
-            to="/collections" 
-            className="hidden md:inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white rounded-lg hover:bg-brand-red-dark transition-colors font-semibold"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white rounded-lg hover:bg-brand-red-dark transition-colors font-semibold"
           >
             View All Collections
           </Link>

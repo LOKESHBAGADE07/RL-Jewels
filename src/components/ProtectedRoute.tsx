@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 
 // Allow-list of authorized admin emails
-const AUTHORIZED_EMAILS = ['lbagade6@gmail.com'];
+const AUTHORIZED_EMAILS = ['lbagade6@gmail.com', 'instamine9@gmail.com'];
 
 export default function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);

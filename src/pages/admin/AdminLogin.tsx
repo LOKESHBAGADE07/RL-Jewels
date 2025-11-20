@@ -37,7 +37,7 @@ export default function AdminLogin() {
     setMessage('');
 
     // Allow-list of authorized admin emails
-    const authorizedEmails = ['lbagade6@gmail.com'];
+    const authorizedEmails = ['lbagade6@gmail.com', 'instamine9@gmail.com'];
     
     if (!authorizedEmails.includes(email.toLowerCase().trim())) {
       setError('⚠️ Unauthorized email address. Only authorized staff can access the admin panel.');
